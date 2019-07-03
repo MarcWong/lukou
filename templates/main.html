@@ -89,7 +89,54 @@
     <div style="width: 80%;height: 1px;background-color: #cccccc;margin-left: 10%;margin-top: 20px;"></div>
   </div>
   <div class="news" style="display: none;">
-    bbbbbb
+    <div style="padding:10px 40px;height: 500px;cursor:pointer;" onclick="nav('http://www.sohu.com/a/278592980_649045')">
+      <div style="display: inline-block;width: 30%;height: 500px;vertical-align:top;">
+        <div style="font-size: 24px;color: #999999">日期</div>
+        <div style="font-size: 20px;font-weight: 300;">2018 <span style="color: #999999;font-size: 18px">2019 2020</span></div>
+        <div style="margin-top: 20px;font-size: 24px;">标题&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: 18px;">2018-06-06</span></div>
+        <div style="margin-top: 20px;"><span style="white-space:normal">摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要</span></div>
+      </div>
+      <div class="top" style="display: inline-block;margin-left: 20px;">
+        <img src="/static/img/news.jpeg" style="width: 750px;">
+      </div>
+    </div>
+    <div style="padding:10px 40px;height: 500px;cursor:pointer;" onclick="nav('http://www.sohu.com/a/278592980_649045')">
+      <div style="display: inline-block;width: 30%;height: 500px;vertical-align:middle;">
+        <div style="margin-top: 20px;font-size: 24px;">标题&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: 18px;">2018-06-06</span></div>
+        <div style="margin-top: 20px;"><span style="white-space:normal">摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要</span></div>
+      </div>
+      <div class="top" style="display: inline-block;margin-left: 20px;">
+        <img src="/static/img/news.jpeg" style="width: 750px;">
+      </div>
+    </div>
+    <div style="padding:10px 40px;height: 500px;cursor:pointer;" onclick="nav('http://www.sohu.com/a/278592980_649045')">
+      <div style="display: inline-block;width: 30%;height: 500px;vertical-align:middle;">
+        <div style="margin-top: 20px;font-size: 24px;">标题&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: 18px;">2018-06-06</span></div>
+        <div style="margin-top: 20px;"><span style="white-space:normal">摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要</span></div>
+      </div>
+      <div class="top" style="display: inline-block;margin-left: 20px;">
+        <img src="/static/img/news.jpeg" style="width: 750px;">
+      </div>
+    </div>
+    <div style="padding:10px 40px;height: 500px;cursor:pointer;" onclick="nav('http://www.sohu.com/a/278592980_649045')">
+      <div style="display: inline-block;width: 30%;height: 500px;vertical-align:middle;">
+        <div style="margin-top: 20px;font-size: 24px;">标题&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: 18px;">2018-06-06</span></div>
+        <div style="margin-top: 20px;"><span style="white-space:normal">摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要</span></div>
+      </div>
+      <div class="top" style="display: inline-block;margin-left: 20px;">
+        <img src="/static/img/news.jpeg" style="width: 750px;">
+      </div>
+    </div>
+    <div style="padding:10px 40px;height: 500px;cursor:pointer;" onclick="nav('http://www.sohu.com/a/278592980_649045')">
+      <div style="display: inline-block;width: 30%;height: 500px;vertical-align:middle;">
+        <div style="margin-top: 20px;font-size: 24px;">标题&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: 18px;">2018-06-06</span></div>
+        <div style="margin-top: 20px;">摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要</div>
+      </div>
+      <div class="top" style="display: inline-block;margin-left: 20px;">
+        <img src="/static/img/news.jpeg" style="width: 750px;">
+      </div>
+    </div>
+    <div class="page" id="Page" style="width: 500px;margin: 10px auto;"></div>
   </div>
   <div style="width: 80%;margin-left: 10%">
     <div style="margin: 20px auto;text-align: center"><span style="font-size: 30px;font-weight: 600;">联系我们</span></div>
@@ -125,7 +172,20 @@
   </div>
 </body>
 <script src="/static/js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="/static/js/MyPage.js"></script>
 <script type="text/javascript">
+    P.initMathod({
+        params: {elemId: '#Page',total:'123'},
+        requestFunction: function () {
+            // P.config.total = parseInt(Math.random() * 10 + 85);//此处模拟总记录变化
+
+            //TODO ajax异步请求过程,异步获取到的数据总条数赋值给 P.config.total
+
+            //列表渲染自行处理
+
+            console.log(JSON.stringify(P.config));
+        }
+    });
   function test(that,e) {
     $("body").find(".select").attr("class","none");
     if(e == 0){
@@ -137,7 +197,9 @@
       $(".main").css("display","none");
       $(that).attr("class","select")
     }
-
+  }
+  function nav(url) {
+      window.open(url, '_blank');
   }
 </script>
 <style>
@@ -170,6 +232,52 @@
     color: #cccccc;
     padding: 5px;
     cursor:pointer;
+  }
+  .page ul{
+    padding:0;
+    min-width: 450px;
+  }
+  .page ul::after{
+    content: '';
+    display: block;
+    clear: both;
+  }
+  .page ul li{
+    float: left;
+    width:auto;
+    min-width:32px;
+    height: 30px;
+    line-height:30px;
+    list-style: none;
+  }
+  .page a{
+    color:#aaa;
+    font-family: "微软雅黑";
+    padding:0 10px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-left: none;
+  }
+  .page ul li:first-child a{
+    border-left: 1px solid #ccc;
+  }
+
+  .page ul li a:hover{
+    background-color: dodgerblue;
+  }
+  .page ul li a:hover{
+    color: white;
+  }
+  .page .disabled a:hover{
+    background-color: white;
+    cursor:not-allowed;
+    color: #aaa;
+  }
+  .page .active a{
+    background-color: dodgerblue;
+    color: white;
   }
   /*button {*/
     /*background-color: transparent;*/
