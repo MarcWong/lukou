@@ -1,3 +1,19 @@
 from django.db import models
 
 # Create your models here.
+
+class News(models.Model):
+    '''
+        新闻
+    '''
+    title = models.CharField(max_length=128, verbose_name='标题')
+    digest = models.TextField(verbose_name='摘要')
+    img = models.ImageField(upload_to='imgs', verbose_name='图片')
+    url = models.CharField(max_length=128, verbose_name='链接地址')
+    create_time = models.DateTimeField(auto_now_add=True, verbose_name='创建时间')
+    update_time = models.DateTimeField(auto_now=True, verbose_name='更新时间')
+
+    class Meta:
+        verbose_name_plural='新闻'
+
+
