@@ -89,10 +89,12 @@
     <div style="width: 80%;height: 1px;background-color: #cccccc;margin-left: 10%;margin-top: 20px;"></div>
   </div>
   <div class="news" style="display: none;">
+    <div style="position: absolute;left: 3%;">
+      <div style="font-size: 24px;color: #999999">日期</div>
+      <div><span class="dataSe" onclick="selectData(this,2018)">2018&nbsp;&nbsp;</span><span class="dataNo" onclick="selectData(this,2019)">2019&nbsp;&nbsp;</span><span class="dataNo" onclick="selectData(this,2020)">2020</span></div>
+    </div>
     <div style="padding:10px 40px;height: 500px;cursor:pointer;" onclick="nav('http://www.sohu.com/a/278592980_649045')">
       <div style="display: inline-block;width: 30%;height: 500px;vertical-align:top;">
-        <div style="font-size: 24px;color: #999999">日期</div>
-        <div style="font-size: 20px;font-weight: 300;">2018 <span style="color: #999999;font-size: 18px">2019 2020</span></div>
         <div style="margin-top: 20px;font-size: 24px;">标题&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: 18px;">2018-06-06</span></div>
         <div style="margin-top: 20px;"><span style="white-space:normal">摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要</span></div>
       </div>
@@ -174,18 +176,30 @@
 <script src="/static/js/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="/static/js/MyPage.js"></script>
 <script type="text/javascript">
-    P.initMathod({
-        params: {elemId: '#Page',total:'123'},
-        requestFunction: function () {
-            // P.config.total = parseInt(Math.random() * 10 + 85);//此处模拟总记录变化
+  const time = '2018';
+  P.initMathod({
+      params: {elemId: '#Page',total:'123'},
+      requestFunction: function () {
+          // P.config.total = parseInt(Math.random() * 10 + 85);//此处模拟总记录变化
 
-            //TODO ajax异步请求过程,异步获取到的数据总条数赋值给 P.config.total
+          //TODO ajax异步请求过程,异步获取到的数据总条数赋值给 P.config.total
 
-            //列表渲染自行处理
+          //列表渲染自行处理
 
-            console.log(JSON.stringify(P.config));
-        }
-    });
+          console.log(JSON.stringify(P.config));
+      }
+  });
+  function selectData(that,data) {
+      $("body").find(".dataSe").attr("class","dataNo");
+      this.time = data;
+      if(data == 2018){
+          $(that).attr("class","dataSe")
+      }else if(data == 2019){
+          $(that).attr("class","dataSe")
+      }else{
+          $(that).attr("class","dataSe")
+      }
+  }
   function test(that,e) {
     $("body").find(".select").attr("class","none");
     if(e == 0){
@@ -203,6 +217,14 @@
   }
 </script>
 <style>
+  .dataSe {
+    font-size: 20px;
+    font-weight: 400;
+  }
+  .dataNo {
+    font-size: 16px;
+    color: #999999;
+  }
   .top {
     display:flex;
     align-items:center;
