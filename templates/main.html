@@ -40,11 +40,11 @@
       <div style="font-size: 35px;margin-top: 20px;font-weight: 600;">抑味抑菌保护</div>
       <div style="margin-top: 20px;font-size: 20px;">真正安心，<span style="font-size: 15px;">消字号备案</span></div>
       <div style="font-size: 10px;margin-top: 10px;">*聚可安糖私户抑菌液，获得卫计委备案</div>
-      <div style="margin-top: 10px;font-size: 20px;">真正安心，<span style="font-size: 15px;">消字号备案</span></div>
-      <div style="font-size: 10px;margin-top: 10px;">*聚可安糖私户抑菌液，获得卫计委备案</div>
-      <div style="margin-top: 10px;font-size: 20px;">真正安心，<span style="font-size: 15px;">消字号备案</span></div>
-      <div style="font-size: 10px;margin-top: 10px;">*聚可安糖私户抑菌液，获得卫计委备案</div>
-      <div style="margin-top: 26px;"><button>了解详情</button></div>
+      <div style="margin-top: 10px;font-size: 20px;">真正照顾，<span style="font-size: 15px;">99.9%抑菌率</span></div>
+      <div style="font-size: 10px;margin-top: 10px;">*依据CMA级实验检测报告</div>
+      <div style="margin-top: 10px;font-size: 20px;">真正保护，<span style="font-size: 15px;">水溶性无残留</span></div>
+      <div style="font-size: 10px;margin-top: 10px;">*100%可被人体自然吸收，不同于硅油残留</div>
+      <div style="margin-top: 1%;"><button>了解详情</button></div>
     </div>
     <div style="flex-direction: column;justify-content:flex-start;height: 100%;">
       <img src="/static/img/01.png" style="width: 60px;height: 60px;">
@@ -60,7 +60,7 @@
       <div style="margin-top: 10px;font-size: 20px;">薄过0.03</div>
       <div style="font-size: 20px;">快感与健康并存</div>
       <div style="font-size: 10px;margin-top: 20px;">*鹿口安全套皆具有抑味抑菌保护功能的润滑液</div>
-      <div style="margin-top: 29%;"><button>了解详情</button></div>
+      <div style="margin-top: 27%;"><button>了解详情</button></div>
     </div>
     <img src="/static/img/2.png" style="width: 400px;height: 360px;margin-left: 15px;">
     <!--<div style="font-size: 30px;font-weight: 600;">02</div>-->
@@ -73,7 +73,7 @@
       <div style="margin-top: 20px;font-size: 20px;">1200mg大量润滑，比平均多50%润滑液</div>
       <div style="font-size: 10px;margin-top: 10px;">*让2/3体液偏少的亚洲女性，不再忍一忍</div>
       <div style="font-size: 10px;margin-top: 10px;">*鹿口安全套皆具有抑味抑菌保护功能的润滑液</div>
-      <div style="margin-top: 20%;"><button>了解详情</button></div>
+      <div style="margin-top: 13%;"><button>了解详情</button></div>
     </div>
     <div style="flex-direction: column;justify-content:flex-start;height: 100%;">
       <img src="/static/img/03.png" style="width: 60px;height: 60px;">
@@ -142,6 +142,8 @@
 <script type="text/javascript" src="/static/js/MyPage.js"></script>
 <script type="text/javascript">
   var time = '2018';
+  var pageSize = 5;
+  var pageIndex = 1;
   function selectData(that,data) {
       $("body").find(".dataSe").attr("class","dataNo");
       this.time = data;
@@ -152,34 +154,58 @@
       }else{
           $(that).attr("class","dataSe")
       }
-
-  }
-
-  P.initMathod({
-      params: {elemId: '#Page',total:'100',pageIndex:'1', pageNum:'6',pageSize:'5'},
-      requestFunction: function () {
-          //P.config.total = parseInt(Math.random() * 10 + 85);//此处模拟总记录变化
-
-          //TODO ajax异步请求过程,异步获取到的数据总条数赋值给 P.config.total
-
-          //列表渲染自行处理
-          $.ajax({
+      $.ajax({
               url: '{% url 'news' %}}',
-              data: {'total':P.config.total, 'pageIndex':P.config.pageIndex},
+              data: {'pageSize':pageSize, 'pageIndex':pageIndex, 'year':time},
               type: "POST",
               dataType: "json",
               success: function(res) {
                   // data = jQuery.parseJSON(data);  //dataType指明了返回数据为json类型，故不需要再反序列化
                   console.log(res)
+                  $(".newsCard").remove();
                   for(var i = 0;i < res.length;i++){
-                      $(".newsCard").remove();
-                      var html = '<div class="newsCard" onclick="nav('+res[i].url+')">\n' +
+                      var html = '<div class="newsCard" onclick="nav(\''+res[i].url+ '\')">\n' +
                           '      <div class="cardText">\n' +
-                          '        <div style="margin-top: 20px;font-size: 24px;">标题&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: 18px;">2018-06-06</span></div>\n' +
-                          '        <div style="margin-top: 20px;"><span style="white-space:normal">'+res[i].title+'</span></div>\n' +
+                          '        <div style="margin-top: 20px;font-size: 24px;">'+res[i].title+'&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: 18px;">'+res[i].time+'</span></div>\n' +
+                          '        <div style="margin-top: 20px;"><span style="white-space:normal">'+res[i].digest+'</span></div>\n' +
                           '      </div>\n' +
                           '      <div class="top" style="margin-left: 20px;width: 60%;">\n' +
-                          '        <img src="'+res[i].img+'" style="width: 100%;height: auto">\n' +
+                          '        <img src="../media/'+res[i].img+'" style="width: 100%;height: auto">\n' +
+                          '      </div>\n' +
+                          '    </div>'
+                      $(".cardData").after(html)
+                  }
+              }
+          })
+
+  }
+
+  P.initMathod({
+      params: {elemId: '#Page',total:{{ count }},pageIndex:'1', pageNum:'6',pageSize:'5'},
+      requestFunction: function () {
+          //P.config.total = parseInt(Math.random() * 10 + 85);//此处模拟总记录变化
+          pageSize = P.config.pageSize;
+          pageIndex = P.config.pageIndex;
+          //TODO ajax异步请求过程,异步获取到的数据总条数赋值给 P.config.total
+
+          //列表渲染自行处理
+          $.ajax({
+              url: '{% url 'news' %}}',
+              data: {'pageSize':P.config.pageSize, 'pageIndex':P.config.pageIndex, 'year':time},
+              type: "POST",
+              dataType: "json",
+              success: function(res) {
+                  // data = jQuery.parseJSON(data);  //dataType指明了返回数据为json类型，故不需要再反序列化
+                  console.log(res)
+                  $(".newsCard").remove();
+                  for(var i = 0;i < res.length;i++){
+                      var html = '<div class="newsCard" onclick="nav(\''+res[i].url+ '\')">\n' +
+                          '      <div class="cardText">\n' +
+                          '        <div style="margin-top: 20px;font-size: 24px;">'+res[i].title+'&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: 18px;">'+res[i].time+'</span></div>\n' +
+                          '        <div style="margin-top: 20px;"><span style="white-space:normal">'+res[i].digest+'</span></div>\n' +
+                          '      </div>\n' +
+                          '      <div class="top" style="margin-left: 20px;width: 60%;">\n' +
+                          '        <img src="../media/'+res[i].img+'" style="width: 100%;height: auto">\n' +
                           '      </div>\n' +
                           '    </div>'
                       $(".cardData").after(html)
@@ -303,9 +329,12 @@
     background-color: dodgerblue;
     color: white;
   }
-  /*button {*/
-    /*background-color: transparent;*/
-    /*border: 1px #cccccc solid;*/
-  /*}*/
+  button {
+    background-color: transparent;
+    border: 1px #cccccc solid;
+    padding: 5px 15px;
+    /*border: 1px solid transparent; */
+    outline: none;
+  }
 </style>
 </html>

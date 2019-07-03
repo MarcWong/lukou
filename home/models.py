@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.utils import timezone
 # Create your models here.
 
 class News(models.Model):
@@ -10,6 +10,7 @@ class News(models.Model):
     digest = models.TextField(verbose_name='摘要')
     img = models.ImageField(upload_to='imgs', verbose_name='图片')
     url = models.CharField(max_length=128, verbose_name='链接地址')
+    time = models.DateTimeField(default=timezone.now(), verbose_name='日期')
     create_time = models.DateTimeField(auto_now_add=True, verbose_name='创建时间')
     update_time = models.DateTimeField(auto_now=True, verbose_name='更新时间')
 
