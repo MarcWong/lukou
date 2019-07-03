@@ -176,19 +176,7 @@
 <script src="/static/js/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="/static/js/MyPage.js"></script>
 <script type="text/javascript">
-  const time = '2018';
-  P.initMathod({
-      params: {elemId: '#Page',total:'123'},
-      requestFunction: function () {
-          // P.config.total = parseInt(Math.random() * 10 + 85);//此处模拟总记录变化
-
-          //TODO ajax异步请求过程,异步获取到的数据总条数赋值给 P.config.total
-
-          //列表渲染自行处理
-
-          console.log(JSON.stringify(P.config));
-      }
-  });
+  var time = '2018';
   function selectData(that,data) {
       $("body").find(".dataSe").attr("class","dataNo");
       this.time = data;
@@ -199,7 +187,30 @@
       }else{
           $(that).attr("class","dataSe")
       }
+
   }
+
+  P.initMathod({
+      params: {elemId: '#Page',total:'100',pageIndex:'1', pageNum:'6',pageSize:'5'},
+      requestFunction: function () {
+          //P.config.total = parseInt(Math.random() * 10 + 85);//此处模拟总记录变化
+
+          //TODO ajax异步请求过程,异步获取到的数据总条数赋值给 P.config.total
+
+          //列表渲染自行处理
+        $.ajax({
+            url: '{% url 'news' %}}',
+            data: {'total':P.config.total, 'pageIndex':P.config.pageIndex},
+            type: "POST",
+            dataType: "json",
+            success: function(data) {
+                // data = jQuery.parseJSON(data);  //dataType指明了返回数据为json类型，故不需要再反序列化
+                console.log(data)
+                $('.news div').remove()
+            }
+        })
+      }
+  });
   function test(that,e) {
     $("body").find(".select").attr("class","none");
     if(e == 0){

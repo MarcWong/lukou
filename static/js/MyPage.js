@@ -8,7 +8,7 @@
 P = new Page();
 //分页对象
 function Page(){
-    this.config = {elemId:'#page',pageIndex:'1',total:'0',pageNum:'7',pageSize:'10'};//默认参数
+    this.config = {elemId:'#page',pageIndex:'1',total:'0',pageNum:'7',pageSize:'5'};//默认参数
     this.version = '1.0';//分页版本
     this.requestFunction = null;//分页版本
 
