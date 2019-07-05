@@ -8,6 +8,8 @@
     <title>{{ title }}</title>
 </head>
 <body>
+<div class="bg_img" style="background:#191919;opacity:0.8;display:none;position:fixed;width:100%;height:100%;"></div>
+<img class="img" src="/static/img/bdbk.png" style="display:none;position:absolute;top:10%;left:0;width:90%;margin-left: 5%;z-index: 3"/>
 <div style="position: absolute;z-index: 2;left: 20px;">
   <img src="/static/img/toppeople.png" style="margin-top: -130%;margin-left: 75%;">
   <div style="width: 2px;height: 300px;background-color:white;position: absolute;margin-left: 120%;margin-top: 64%"></div>
@@ -27,8 +29,54 @@
   <div style="display:inline-block;width: 25px;padding: 20px;"><div class="none" onclick="test(this,1)"><span>新闻</span></div></div>
   <div class="line" style="display:inline-block;"></div>
 </div>
-<div style="width: 80%;height: 1px;background-color: #cccccc;margin-left: 10%"></div>
-<div class="main" style="display: block;">
+<div class="h5" style="display: block;">
+  <div class="top" style="padding: 0;">
+    <div style="font-size: 30px;position: absolute;z-index: 2;text-align: center;margin-top: -15%;font-family: PingFangSC-Regular, sans-serif;">
+      <div>产品介绍</div>
+      <div style="margin-top: 20px;font-size: 35px;font-weight: 400;">私处抑味·抑菌·保护</div>
+    </div>
+    <img src="/static/img/1.JPG" style="width: 95%;margin: 20px 0;border-radius: 50% 50% 0 0/ 45px 45px 0 0;height: 500px;">
+  </div>
+  <div class="mii-page">
+    <div class="mii-container">
+      <img src="/static/img/001.png" style="height: 450px;width: 100%">
+      <div style="padding: 10px 20px;">
+        <div style="font-size: 32px;font-weight: 800">鹿口润滑液·抑味抑菌保护</div>
+        <div style="margin-top: 10px;font-size: 28px;font-weight: 600;color: #333333">真正安心，<span style="font-size: 24px;color: #666666;font-weight: 500">消字号备案 *聚可安糖私护抑菌液，获得卫计委备案</span></div>
+        <div style="margin-top: 10px;font-size: 28px;font-weight: 600;color: #333333">真正照顾，<span style="font-size: 24px;color: #666666;font-weight: 500">99.9%抑菌率 *依据CMA级实验检测报告</span></div>
+        <div style="margin-top: 10px;font-size: 28px;font-weight: 600;color: #333333">真正保护，<span style="font-size: 24px;color: #666666;font-weight: 500">水溶性无残留 *100%可被人体自然吸收，不同于硅油残留</span></div>
+        <div style="margin-top: 15px;"><button style="font-size: 26px;float: right;margin-bottom: 15px;" onclick="showImg()">关于我们</button></div>
+      </div>
+    </div>
+  </div>
+  <div class="mii-page">
+    <div class="mii-container">
+      <img src="/static/img/002.png" style="height: 450px;width: 100%">
+      <div style="padding: 10px 20px;">
+        <div style="font-size: 32px;font-weight: 800">鹿口安全套·极薄系列</div>
+        <div style="margin-top: 10px;font-size: 28px;font-weight: 600;color: #666666">薄过"003"</div>
+        <div style="margin-top: 10px;font-size: 28px;font-weight: 600;color: #666666">快感与健康并存</div>
+        <div style="margin-top: 10px;font-size: 28px;font-weight: 500;color: #333333"><span style="font-size: 24px;color: #666666;font-weight: 500">水溶性无残留 *100%可被人体自然吸收，不同于硅油残留</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="mii-page">
+    <div class="mii-container">
+      <img src="/static/img/003.png" style="height: 450px;width: 100%">
+      <div style="padding: 10px 20px;">
+        <div style="font-size: 32px;font-weight: 800">鹿口安全套·倍润滑系列</div>
+        <div style="margin-top: 10px;font-size: 28px;font-weight: 600;color: #666666">1200mg大量润滑，比平均多50%润滑液</div>
+        <div style="margin-top: 10px;font-size: 28px;font-weight: 500;color: #999999">让2/3体液偏少的亚洲女性，不再忍一忍</div>
+        <div style="margin-top: 10px;font-size: 28px;font-weight: 500;color: #999999">*鹿口安全套皆具有抑味抑菌保护功能的润滑液</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="top" style="margin-top: 20px;padding: 0;">
+    <img src="/static/img/bottom.jpg" style="width: 95%;">
+  </div>
+</div>
+<div class="main" style="display: none;">
+  <div style="width: 80%;height: 1px;background-color: #cccccc;margin-left: 10%"></div>
   <div class="top">
     <div style="position: absolute;z-index: 2;text-align: center;margin-top: -10%;font-family: PingFangSC-Regular, sans-serif;">
       <div>产品介绍</div>
@@ -47,7 +95,7 @@
       <div style="font-size: 10px;margin-top: 10px;color: #999999">*依据CMA级实验检测报告</div>
       <div style="margin-top: 10px;font-size: 20px;font-weight: 500">真正保护，<span style="font-size: 15px;color: #666666;font-weight: 400">水溶性无残留</span></div>
       <div style="font-size: 10px;margin-top: 10px;color: #999999">*100%可被人体自然吸收，不同于硅油残留</div>
-      <div style="margin-top: 1%;"><button>关于我们</button></div>
+      <div style="margin-top: 1%;"><button onclick="showImg()">关于我们</button></div>
     </div>
     <div style="flex-direction: column;justify-content:flex-start;height: 100%;">
       <img src="/static/img/01.png" style="width: 60px;height: 60px;">
@@ -90,6 +138,7 @@
   <div style="width: 80%;height: 1px;background-color: #cccccc;margin-left: 10%;margin-top: 20px;"></div>
 </div>
 <div class="news" style="display: none;">
+  <div style="width: 80%;height: 1px;background-color: #cccccc;margin-left: 10%"></div>
   <div class="cardData" style="position: absolute;left: 4%;">
     <div style="font-size: 24px;color: #999999">日期</div>
     <div class="dataTime"><span class="dataSe" onclick="selectData(this,2018)">2018&nbsp;&nbsp;</span><span class="dataNo" onclick="selectData(this,2019)">2019&nbsp;&nbsp;</span><span class="dataNo" onclick="selectData(this,2020)">2020</span></div>
@@ -215,6 +264,26 @@
           })
       }
   });
+  $(document).ready(mobile());
+  function showImg(){
+      $('.bg_img').show();
+      $('.img').show();
+  }
+  $('.bg_img').click(function(){
+      $('.bg_img').hide();
+      $('.img').hide();
+  });
+  function mobile() {
+      try{
+          document.createEvent("TouchEvent");
+          $(".main").css("display","none");
+          $(".h5").css("display","block");
+      }
+      catch(e){
+          $(".main").css("display","block");
+          $(".h5").css("display","none");
+      }
+  }
   function test(that,e) {
     $("body").find(".select").attr("class","none");
     if(e == 0){
@@ -232,6 +301,31 @@
   }
 </script>
 <style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  .mii-page {
+    width: 95%;
+    max-width: 100%;
+    margin: 20px auto;
+    background-color: #eee;
+    border-radius: 20px;
+    box-shadow: 0 18px 8px -4px rgba(0, 0, 0, .3);
+  }
+  .mii-container {
+    position: relative;
+    overflow: auto;
+    width: 100%;
+    box-shadow: 0 8px 3px -3px rgba(0, 0, 0, .3);
+    background-color: white;
+    border-radius: 20px;
+    height: 100%;
+  }
+  .mii-container img {
+    border-radius: 20px;
+    box-shadow: 0 8px 3px -3px rgba(0, 0, 0, .3);
+  }
   @font-face {
     font-family: "Heavy";
     src: url('../../lukou/static/font/PingFang Heavy.otf');
