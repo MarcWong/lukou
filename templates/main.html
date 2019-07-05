@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <link rel="icon" href="/static/img/logo.png" type="image/x-icon" sizes="96*96">
-    <meta name="keywords" contect="{{ keyword }}">
-    <meta name="description" contect="{{ description }}">
-    <title>{{ title }}</title>
+    <meta name="keywords" contect="{% if keyword%}{{ keyword }}{% else %}鹿口、鹿口避孕套、鹿口安全套、鹿口润滑液{% endif %}">
+    <meta name="description" contect="{% if description%}{{ description }}{% else %}专为女性设计的安全套品牌，主要有鹿口避孕套（安全套）、鹿口润滑液等。{% endif %}">
+    <title>{% if title%}{{ title }}{% else %}鹿口,保护女性健康安全的避孕套、润滑液品牌 - 鹿口官网{% endif %}</title>
 </head>
 <body>
 <div style="position: absolute;z-index: 2;left: 20px;">
