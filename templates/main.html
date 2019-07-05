@@ -287,8 +287,8 @@
   function test(that,e) {
     $("body").find(".select").attr("class","none");
     if(e == 0){
+      mobile();
       $(".news").css("display","none");
-      $(".main").css("display","block");
       $(that).attr("class","select")
     }else{
       $(".news").css("display","block");
