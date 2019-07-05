@@ -2,14 +2,16 @@ import json
 from lukou import settings
 from django.shortcuts import render, render_to_response
 from django.http import HttpResponse, JsonResponse
-from .models import News
+from .models import News,Tdk
 from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 
 
 def index(reuqest):
     news_count = News.objects.count()
-    return render(reuqest, 'main.html', {'count':news_count})
+    tdk_data = Tdk.objects.all().first()
+
+    return render(reuqest, 'main.html', {'count':news_count, 'title':tdk_data.title, 'description':tdk_data.description, 'keyword':tdk_data.keyword})
 
 @csrf_exempt
 def news(request):

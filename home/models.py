@@ -18,3 +18,15 @@ class News(models.Model):
         verbose_name_plural='新闻'
 
 
+class Tdk(models.Model):
+    '''
+        网站设置
+    '''
+    title = models.CharField(max_length=128, verbose_name='标题')
+    description = models.CharField(max_length=128, verbose_name='描述')
+    keyword = models.CharField(max_length=128, verbose_name='关键词')
+    create_time = models.DateTimeField(auto_now_add=True, verbose_name='创建时间')
+    update_time = models.DateTimeField(auto_now=True, verbose_name='更新时间')
+
+    class Meta:
+        verbose_name_plural='网站设置'
