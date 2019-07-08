@@ -135,7 +135,6 @@
   <div class="top" style="margin-top: 20px;">
     <img src="/static/img/bottom.jpg">
   </div>
-  <div style="width: 80%;height: 1px;background-color: #cccccc;margin-left: 10%;margin-top: 20px;"></div>
 </div>
 <div class="news" style="display: none;">
   <div style="width: 80%;height: 1px;background-color: #cccccc;margin-left: 10%"></div>
@@ -152,7 +151,9 @@
       <img src="/static/img/news.jpeg" style="width: 100%;height: auto">
     </div>
   </div>
-  <div class="page" id="Page" style="justify-content: center;align-items: center;display: flex;display: block;"></div>
+  <div class="num" style="display: block;">
+    <div class="page" id="Page" style="justify-content: center;align-items: center;display: flex;"></div>
+  </div>
 </div>
 <div style="width: 80%;height: 1px;background-color: #cccccc;margin-left: 10%;margin-top: 20px;"></div>
 <div style="width: 80%;margin-left: 10%">
@@ -214,7 +215,7 @@
                   console.log(res)
                   $(".newsCard").remove();
                   if(res.length>0){
-                      $("#page").css("display","block")
+                      $(".num").css("display","block")
                       for(var i = 0;i < res.length;i++){
                           var html = '<div class="newsCard" onclick="nav(\''+res[i].url+ '\')">\n' +
                               '      <div class="cardText">\n' +
@@ -228,7 +229,7 @@
                           $(".cardData").after(html)
                       }
                   }else{
-                      $("#page").css("display","none")
+                      $(".num").css("display","none")
                   }
               }
           })
@@ -254,7 +255,7 @@
                   console.log(res)
                   $(".newsCard").remove();
                   if(res.length > 0){
-                      $("#page").css("display","block")
+                      $(".num").css("display","block")
                       for(var i = 0;i < res.length;i++){
                           var html = '<div class="newsCard" onclick="nav(\''+res[i].url+ '\')">\n' +
                               '      <div class="cardText">\n' +
@@ -268,7 +269,7 @@
                           $(".cardData").after(html)
                       }
                   }else {
-                      $("#page").css("display","none")
+                      $(".num").css("display","none")
                   }
               }
           })
