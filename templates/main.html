@@ -10,12 +10,12 @@
 <body>
 <div class="bg_img" style="background:#191919;opacity:0.8;display:none;position:fixed;width:100%;height:100%;"></div>
 <img class="img" src="/static/img/bdbk.png" style="display:none;position:absolute;top:10%;left:0;width:90%;margin-left: 5%;z-index: 3"/>
-<div style="position: absolute;z-index: 2;left: 20px;">
+<div style="position: absolute;z-index: 2;left: 0;">
   <img src="/static/img/toppeople.png" style="margin-top: -130%;margin-left: 75%;">
   <div style="width: 2px;height: 300px;background-color:white;position: absolute;margin-left: 120%;margin-top: 64%"></div>
 </div>
-<div style="position: absolute;z-index: 2;right: 20px;">
-  <img src="/static/img/wenzi.png" style="width: 72%;margin-top: 20%;">
+<div style="position: absolute;z-index: 2;right: 0;">
+  <img src="/static/img/wenzi.png" style="width: 70%;margin-top: 23%;">
 </div>
 <div class="top" style="border-radius: 0 0 50% 50% / 0 0 50px 50px;">
   <img src="/static/img/DSC06650.jpg">
@@ -45,7 +45,7 @@
         <div style="margin-top: 10px;font-size: 24px;font-weight: 600;color: #666666">真正照顾，<span style="font-size: 18px;font-weight: normal">消字号备案 *聚可安糖私护抑菌液，获得卫计委备案</span></div>
         <div style="margin-top: 10px;font-size: 24px;font-weight: 600;color: #666666">真正安心，<span style="font-size: 18px;font-weight: normal">99.9%抑菌率 *依据CMA级实验检测报告</span></div>
         <div style="margin-top: 10px;font-size: 24px;font-weight: 600;color: #666666">真正保护，<span style="font-size: 18px;font-weight: normal">水溶性无残留 *100%可被人体自然吸收，不同于硅油残留</span></div>
-        <div style="margin-top: 15px;"><button style="font-size: 26px;float: right;margin-bottom: 15px;" onclick="showImg()">关于我们</button></div>
+        <div style="margin-top: 15px;"><button style="font-size: 22px;float: right;margin-bottom: 20px;background-color: #3b7cca;border: 1px #3b7cca solid;color: white;border-radius: 25px;" onclick="showImg()">关于我们</button></div>
       </div>
     </div>
   </div>
@@ -152,16 +152,16 @@
       <img src="/static/img/news.jpeg" style="width: 100%;height: auto">
     </div>
   </div>
-  <div class="page" id="Page" style="justify-content: center;align-items: center;display: flex;"></div>
+  <div class="page" id="Page" style="justify-content: center;align-items: center;display: flex;display: block;"></div>
 </div>
-<div style="width: 80%;height: 1px;background-color: #cccccc;margin-left: 10%"></div>
+<div style="width: 80%;height: 1px;background-color: #cccccc;margin-left: 10%;margin-top: 20px;"></div>
 <div style="width: 80%;margin-left: 10%">
   <div style="margin: 20px auto;text-align: center"><span style="font-size: 30px;font-weight: 600;">联系我们</span></div>
-  <div style="display: inline-block;width: 40%;margin-top: 40px;padding: 20px;">
-    <div><span style="font-size: 20px;">合作代理</span></div>
-    <div style="padding: 10px 0;color: #666666"><span style="font-size: 15px;white-space:normal">电子邮箱：cj@aqrkk.com</span></div>
-    <div style="padding: 10px 0;color: #666666"><span style="font-size: 15px;white-space:normal">联系电话：0755-23774793</span></div>
-    <div style="padding: 10px 0;color: #666666"><span style="font-size: 15px;white-space:normal">联系地址：广东省深圳市宝安区西乡街道宝源路1065号 F518时尚创意园F1栋105-107</span></div>
+  <div style="display: inline-block;width: 40%;margin-top: 10px;padding: 20px;">
+    <div><span style="font-size: 24px;">合作代理</span></div>
+    <div style="padding: 10px 0;color: #666666"><span style="font-size: 20px;white-space:normal">电子邮箱：cj@aqrkk.com</span></div>
+    <div style="padding: 10px 0;color: #666666"><span style="font-size: 20px;white-space:normal">联系电话：0755-23774793</span></div>
+    <div style="padding: 10px 0;color: #666666"><span style="font-size: 20px;white-space:normal">联系地址：广东省深圳市宝安区西乡街道宝源路1065号 F518时尚创意园F1栋105-107</span></div>
   </div>
   <div class="top" style="display: inline-block;margin-top: 40px;float: right;width: 44%">
     <div style="display: inline-block;width: 40%;">
@@ -213,17 +213,22 @@
                   // data = jQuery.parseJSON(data);  //dataType指明了返回数据为json类型，故不需要再反序列化
                   console.log(res)
                   $(".newsCard").remove();
-                  for(var i = 0;i < res.length;i++){
-                      var html = '<div class="newsCard" onclick="nav(\''+res[i].url+ '\')">\n' +
-                          '      <div class="cardText">\n' +
-                          '        <div style="margin-top: 20px;font-size: 24px;">'+res[i].title+'&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: 18px;">'+res[i].time+'</span></div>\n' +
-                          '        <div style="margin-top: 20px;"><span style="white-space:normal">'+res[i].digest+'</span></div>\n' +
-                          '      </div>\n' +
-                          '      <div class="top" style="margin-left: 20px;width: 60%;">\n' +
-                          '        <img src="../media/'+res[i].img+'" style="width: 100%;height: auto">\n' +
-                          '      </div>\n' +
-                          '    </div>'
-                      $(".cardData").after(html)
+                  if(res.length>0){
+                      $("#page").css("display","block")
+                      for(var i = 0;i < res.length;i++){
+                          var html = '<div class="newsCard" onclick="nav(\''+res[i].url+ '\')">\n' +
+                              '      <div class="cardText">\n' +
+                              '        <div style="margin-top: 20px;font-size: 24px;">'+res[i].title+'&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: 18px;">'+res[i].time+'</span></div>\n' +
+                              '        <div style="margin-top: 20px;"><span style="white-space:normal">'+res[i].digest+'</span></div>\n' +
+                              '      </div>\n' +
+                              '      <div class="top" style="margin-left: 20px;width: 60%;">\n' +
+                              '        <img src="../media/'+res[i].img+'" style="width: 100%;height: auto">\n' +
+                              '      </div>\n' +
+                              '    </div>'
+                          $(".cardData").after(html)
+                      }
+                  }else{
+                      $("#page").css("display","none")
                   }
               }
           })
@@ -248,17 +253,22 @@
                   // data = jQuery.parseJSON(data);  //dataType指明了返回数据为json类型，故不需要再反序列化
                   console.log(res)
                   $(".newsCard").remove();
-                  for(var i = 0;i < res.length;i++){
-                      var html = '<div class="newsCard" onclick="nav(\''+res[i].url+ '\')">\n' +
-                          '      <div class="cardText">\n' +
-                          '        <div style="margin-top: 20px;font-size: 24px;">'+res[i].title+'&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: 18px;">'+res[i].time+'</span></div>\n' +
-                          '        <div style="margin-top: 20px;"><span style="white-space:normal">'+res[i].digest+'</span></div>\n' +
-                          '      </div>\n' +
-                          '      <div class="top" style="margin-left: 20px;width: 60%;">\n' +
-                          '        <img src="../media/'+res[i].img+'" style="width: 100%;height: auto">\n' +
-                          '      </div>\n' +
-                          '    </div>'
-                      $(".cardData").after(html)
+                  if(res.length > 0){
+                      $("#page").css("display","block")
+                      for(var i = 0;i < res.length;i++){
+                          var html = '<div class="newsCard" onclick="nav(\''+res[i].url+ '\')">\n' +
+                              '      <div class="cardText">\n' +
+                              '        <div style="margin-top: 20px;font-size: 24px;">'+res[i].title+'&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: 18px;">'+res[i].time+'</span></div>\n' +
+                              '        <div style="margin-top: 20px;"><span style="white-space:normal">'+res[i].digest+'</span></div>\n' +
+                              '      </div>\n' +
+                              '      <div class="top" style="margin-left: 20px;width: 60%;">\n' +
+                              '        <img src="../media/'+res[i].img+'" style="width: 100%;height: auto">\n' +
+                              '      </div>\n' +
+                              '    </div>'
+                          $(".cardData").after(html)
+                      }
+                  }else {
+                      $("#page").css("display","none")
                   }
               }
           })
@@ -293,6 +303,7 @@
     }else{
       $(".news").css("display","block");
       $(".main").css("display","none");
+      $(".h5").css("display","none");
       $(that).attr("class","select")
     }
   }
@@ -328,7 +339,7 @@
   }
   @font-face {
     font-family: "Heavy";
-    src: url('../../lukou/static/font/PingFang Heavy.otf');
+    src: url('/static/font/PingFang Heavy.otf');
   }
   .dataTime {
     font-family: Heavy;
@@ -376,7 +387,7 @@
     background-color: #318FE1;
     color: white;
     padding: 5px;
-    border-radius: 2px;
+    border-radius: 5px;
     cursor:pointer;
   }
   .none {
@@ -386,7 +397,6 @@
   }
   .page ul{
     padding:0;
-    min-width: 450px;
   }
   .page ul::after{
     content: '';
