@@ -42,9 +42,9 @@
       <img src="/static/img/001.png" style="height: 450px;width: 100%">
       <div style="padding: 20px 20px 30px 20px;">
         <div style="font-size: 32px;font-weight: 800">鹿口润滑液·抑味抑菌保护</div>
-        <div style="margin-top: 15px;font-size: 24px;font-weight: 600;color: #666666">真正照顾，<span style="font-size: 18px;font-weight: normal">消字号备案 *聚可安糖私护抑菌液，获得卫计委备案</span></div>
-        <div style="margin-top: 15px;font-size: 24px;font-weight: 600;color: #666666">真正安心，<span style="font-size: 18px;font-weight: normal">99.9%抑菌率 *依据CMA级实验检测报告</span></div>
-        <div style="margin-top: 15px;font-size: 24px;font-weight: 600;color: #666666">真正保护，<span style="font-size: 18px;font-weight: normal">水溶性无残留 *100%可被人体自然吸收，不同于硅油残留</span></div>
+        <div style="margin-top: 20px;font-size: 24px;font-weight: 600;color: #666666">真正照顾，<span style="font-size: 18px;font-weight: normal">消字号备案 *聚可安糖私护抑菌液，获得卫计委备案</span></div>
+        <div style="margin-top: 20px;font-size: 24px;font-weight: 600;color: #666666">真正安心，<span style="font-size: 18px;font-weight: normal">99.9%抑菌率 *依据CMA级实验检测报告</span></div>
+        <div style="margin-top: 20px;font-size: 24px;font-weight: 600;color: #666666">真正保护，<span style="font-size: 18px;font-weight: normal">水溶性无残留 *100%可被人体自然吸收，不同于硅油残留</span></div>
         <div style="margin-top: 15px;"><button style="font-size: 22px;float: right;margin-bottom: 20px;background-color: #3b7cca;border: 1px #3b7cca solid;color: white;border-radius: 25px;" onclick="showImg()">关于我们</button></div>
       </div>
     </div>
@@ -54,9 +54,9 @@
       <img src="/static/img/002.JPG" style="height: 450px;width: 100%">
       <div style="padding: 20px 20px 30px 20px;">
         <div style="font-size: 32px;font-weight: 800">鹿口安全套·极薄系列</div>
-        <div style="margin-top: 15px;font-size: 24px;font-weight: 600;color: #666666">薄过003</div>
-        <div style="margin-top: 10px;font-size: 24px;font-weight: 600;color: #666666">快感与健康并存</div>
-        <div style="margin-top: 15px;"><span style="font-size: 18px;color: #999999;font-weight: normal">水溶性无残留 *100%可被人体自然吸收，不同于硅油残留</span></div>
+        <div style="margin-top: 20px;font-size: 24px;font-weight: 600;color: #666666">薄过003</div>
+        <div style="margin-top: 15px;font-size: 24px;font-weight: 600;color: #666666">快感与健康并存</div>
+        <div style="margin-top: 20px;"><span style="font-size: 18px;color: #999999;font-weight: normal">水溶性无残留 *100%可被人体自然吸收，不同于硅油残留</span></div>
       </div>
     </div>
   </div>
@@ -65,9 +65,9 @@
       <img src="/static/img/003.JPG" style="height: 450px;width: 100%">
       <div style="padding: 20px 20px 30px 20px;">
         <div style="font-size: 32px;font-weight: 800">鹿口安全套·倍润滑系列</div>
-        <div style="margin-top: 15px;font-size: 24px;font-weight: 600;color: #666666">1200mg大量润滑，比平均多50%润滑液</div>
-        <div style="margin-top: 15px;font-size: 20px;font-weight: 500;color: #999999">让2/3体液偏少的亚洲女性，不再忍一忍</div>
-        <div style="margin-top: 15px;font-size: 18px;font-weight: 500;color: #999999">*鹿口安全套皆具有抑味抑菌保护功能的润滑液</span></div>
+        <div style="margin-top: 20px;font-size: 24px;font-weight: 600;color: #666666">1200mg大量润滑，比平均多50%润滑液</div>
+        <div style="margin-top: 20px;font-size: 20px;font-weight: 500;color: #999999">让2/3体液偏少的亚洲女性，不再忍一忍</div>
+        <div style="margin-top: 20px;font-size: 18px;font-weight: 500;color: #999999">*鹿口安全套皆具有抑味抑菌保护功能的润滑液</span></div>
       </div>
     </div>
   </div>
@@ -186,7 +186,7 @@
   <div class="line" style="display:inline-block;"></div>
 </div>
 <div style="text-align: center;width: 100%;margin-bottom: 20px;">
-  <span onclick="nav('http://www.miitbeian.gov.cn')" style="font-size: 10px;">2017-2020 鹿口版权所有 粤ICP备17059829号-4</span>
+  <span class="gov" onclick="nav('http://www.miitbeian.gov.cn')" style="font-size: 10px;">2017-2020 鹿口版权所有 粤ICP备17059829号-4</span>
 </div>
 </body>
 <script src="/static/js/jquery-3.4.1.min.js"></script>
@@ -217,6 +217,7 @@
                   if(res.length>0){
                       $(".num").css("display","block")
                       $(".bottom_line").css("margin-top","20px")
+                      $(".gov").css("font-size","15px")
                       for(var i = 0;i < res.length;i++){
                           var html = '<div class="newsCard" onclick="nav(\''+res[i].url+ '\')">\n' +
                               '      <div class="cardText">\n' +
@@ -232,6 +233,7 @@
                   }else{
                       $(".num").css("display","none")
                       $(".bottom_line").css("margin-top","100px")
+                      $(".gov").css("font-size","20px")
                   }
               }
           })
@@ -254,11 +256,11 @@
               dataType: "json",
               success: function(res) {
                   // data = jQuery.parseJSON(data);  //dataType指明了返回数据为json类型，故不需要再反序列化
-                  console.log(res)
                   $(".newsCard").remove();
                   if(res.length > 0){
                       $(".num").css("display","block")
                       $(".bottom_line").css("margin-top","20px")
+                      $(".gov").css("font-size","15px")
                       for(var i = 0;i < res.length;i++){
                           var html = '<div class="newsCard" onclick="nav(\''+res[i].url+ '\')">\n' +
                               '      <div class="cardText">\n' +
@@ -274,6 +276,7 @@
                   }else {
                       $(".num").css("display","none")
                       $(".bottom_line").css("margin-top","100px")
+                      $(".gov").css("font-size","20px")
                   }
               }
           })
@@ -324,23 +327,23 @@
   .mii-page {
     width: 95%;
     max-width: 100%;
-    margin: 60px auto;
+    margin: 100px auto;
+    padding-bottom: 20px;
     background-color: #eee;
     border-radius: 20px;
-    box-shadow: 0 15px 8px -4px rgba(0, 0, 0, .08);
   }
   .mii-container {
     position: relative;
     overflow: auto;
     width: 100%;
-    box-shadow: 0 8px 3px -3px rgba(0, 0, 0, .3);
+    box-shadow: 0 8px 3px -3px rgba(0, 0, 0, .1);
     background-color: white;
     border-radius: 20px;
     height: 100%;
   }
   .mii-container img {
     border-radius: 20px;
-    box-shadow: 0 8px 3px -3px rgba(0, 0, 0, .3);
+    box-shadow: 0 8px 3px -3px rgba(0, 0, 0, .1);
   }
   @font-face {
     font-family: "Heavy";
