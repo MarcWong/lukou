@@ -216,6 +216,7 @@
                   $(".newsCard").remove();
                   if(res.length>0){
                       $(".num").css("display","block")
+                      $(".bottom_line").css("margin-top","20px")
                       for(var i = 0;i < res.length;i++){
                           var html = '<div class="newsCard" onclick="nav(\''+res[i].url+ '\')">\n' +
                               '      <div class="cardText">\n' +
@@ -257,6 +258,7 @@
                   $(".newsCard").remove();
                   if(res.length > 0){
                       $(".num").css("display","block")
+                      $(".bottom_line").css("margin-top","20px")
                       for(var i = 0;i < res.length;i++){
                           var html = '<div class="newsCard" onclick="nav(\''+res[i].url+ '\')">\n' +
                               '      <div class="cardText">\n' +
