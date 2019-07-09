@@ -14,8 +14,8 @@
   <img src="/static/img/toppeople.png" style="margin-top: -130%;margin-left: 75%;">
   <div style="width: 2px;height: 300px;background-color:white;position: absolute;margin-left: 120%;margin-top: 64%"></div>
 </div>
-<div style="position: absolute;z-index: 2;right: 0;">
-  <img src="/static/img/wenzi.png" style="width: 70%;margin-top: 23%;">
+<div class="wenzi" style="position: absolute;z-index: 2;left: 990px;">
+  <img src="/static/img/wenzi.png" style="margin-top: 23%;transform:scale(0.7)">
 </div>
 <div class="top" style="border-radius: 0 0 50% 50% / 0 0 50px 50px;">
   <img src="/static/img/DSC06650.jpg">
@@ -78,15 +78,18 @@
 <div class="main" style="display: block;">
   <div style="width: 80%;height: 1px;background-color: #cccccc;margin-left: 10%"></div>
   <div class="top">
-    <div style="position: absolute;z-index: 2;text-align: center;margin-top: -10%;font-family: PingFangSC-Regular, sans-serif;">
+    <div style="position: absolute;z-index: 2;text-align: center;margin-top: -135px;font-family: PingFangSC-Regular, sans-serif;">
       <div>产品介绍</div>
       <div style="margin-top: 20px;font-size: 25px;">私处抑味·抑菌·保护</div>
     </div>
     <img src="/static/img/1.JPG" style="width: 85%;margin: 20px 0;">
   </div>
   <div style="display:flex;align-items:center;overflow: hidden;padding: 0 10%;margin-top: 20px;height: 360px;">
-    <img src="/static/img/01.jpg" style="width: 400px;height: 360px;">
-    <div style="margin-left: 40px;flex-direction:column;justify-content: space-between;width: 100%;">
+    <div style="width: 60%;">
+      <img src="/static/img/01.jpg" style="width: 400px;height: 360px;">
+    </div>
+    <div style="width: 60px;height: 100px;"></div>
+    <div style="flex-direction:column;justify-content: space-between;width: auto;white-space: normal">
       <div style="font-size: 32px;font-weight: 600;">鹿口润滑液·</div>
       <div style="font-size: 32px;margin-top: 10px;font-weight: 600;">抑味抑菌保护</div>
       <div style="margin-top: 20px;font-size: 26px;font-weight: 500">真正安心，<span style="font-size: 18px;color: #666666;font-weight: 400">消字号备案</span></div>
@@ -133,8 +136,9 @@
   </div>
   <div style="width: 80%;height: 1px;background-color: #cccccc;margin-left: 10%;margin-top: 20px;"></div>
   <div class="top" style="margin-top: 20px;">
-    <img src="/static/img/bottom.jpg">
+    <img src="/static/img/bottom.jpg" style="transform:scale(0.9);height: auto;">
   </div>
+  <div style="width: 80%;height: 1px;background-color: #cccccc;margin-left: 10%;margin-top: 20px;"></div>
 </div>
 <div class="news" style="display: none;">
   <div style="width: 80%;height: 1px;background-color: #cccccc;margin-left: 10%"></div>
@@ -154,8 +158,8 @@
   <div class="num" style="display: block;">
     <div class="page" id="Page" style="justify-content: center;align-items: center;display: flex;"></div>
   </div>
+  <div class="bottom_line" style="width: 80%;height: 1px;background-color: #cccccc;margin-left: 10%;margin-top: 20px;"></div>
 </div>
-<div class="bottom_line" style="width: 80%;height: 1px;background-color: #cccccc;margin-left: 10%;margin-top: 20px;"></div>
 <div style="width: 80%;margin-left: 10%">
   <div style="margin: 20px auto;text-align: center"><span style="font-size: 30px;font-weight: 600;">联系我们</span></div>
   <div style="display: inline-block;width: 40%;margin-top: 10px;padding: 20px;">
@@ -175,8 +179,8 @@
     </div>
   </div>
 </div>
-<div style="width: 100%;height: 1px;background-color: #cccccc;margin-top: 56px;"></div>
-<div style="justify-content: center;align-items: center;display: flex;margin-top: 10px;">
+<div style="width: 100%;height: 1px;background-color: #cccccc;margin-top: 60px;"></div>
+<div style="justify-content: center;align-items: center;display: flex;margin-top: 20px;">
   <div class="line"></div>
   <div style="display:inline-block;width: 25px;padding: 20px;"></div>
   <div class="line"></div>
@@ -294,11 +298,14 @@
   function mobile() {
       try{
           document.createEvent("TouchEvent");
+          $("body").css("width","100%");
+          $(".wenzi").css("left","580px");
           $(".main").css("display","none");
           $(".h5").css("display","block");
       }
       catch(e){
           $(".main").css("display","block");
+          $("body").css("width","1440px");
           $(".h5").css("display","none");
       }
   }
@@ -321,7 +328,7 @@
 </script>
 <style>
   * {
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
   }
   .mii-page {
