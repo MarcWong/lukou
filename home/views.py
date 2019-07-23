@@ -11,7 +11,7 @@ def index(request):
     news_count = News.objects.count()
     tdk_data = Tdk.objects.all().first()
 
-    return render(request, 'news.html', {'count':news_count, 'title':tdk_data.title, 'description':tdk_data.description, 'keyword':tdk_data.keyword})
+    return render(request, 'main.html', {'count':news_count, 'title':tdk_data.title, 'description':tdk_data.description, 'keyword':tdk_data.keyword})
 
 @csrf_exempt
 def news(request):
@@ -40,3 +40,7 @@ def news(request):
     # print(json_list)
     return HttpResponse(json.dumps(json_list), content_type="application/json")
 
+def new_markdown(request):
+    id = request.GET['id']
+    news_data = News.objects.filter(id=id).first()
+    return render(request, 'news.html', {"content":news_data.content})
