@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="icon" href="/static/img/logo.png" type="image/x-icon" sizes="96*96">
-    <meta name="keywords" contect="{% if keyword%}{{ keyword }}{% else %}鹿口、鹿口避孕套、鹿口安全套、鹿口润滑液{% endif %}">
-    <meta name="description" contect="{% if description%}{{ description }}{% else %}专为女性设计的安全套品牌，主要有鹿口避孕套（安全套）、鹿口润滑液等。{% endif %}">
-    <title>{% if title%}{{ title }}{% else %}鹿口,保护女性健康安全的避孕套、润滑液品牌 - 鹿口官网{% endif %}</title>
-</head>
-<body>
-<div class="bg_img" style="background:#191919;opacity:0.8;display:none;position:fixed;width:100%;height:100%;"></div>
-<img class="img" src="/static/img/bdbk.png" style="display:none;position:absolute;top:10%;left:0;width:90%;margin-left: 5%;z-index: 3"/>
+{% extends 'base.html' %}
+
+{% block content %}
 <div style="margin: 0 auto;">
   <div class="people" style="position: absolute;z-index: 2;margin-left: 15px;">
     <img src="/static/img/toppeople.png" style="margin-top: -130%;margin-left: 75%;">
@@ -178,174 +169,12 @@
     </div>
   </div>
 </div>
-<div style="width: 100%;height: 1px;background-color: #cccccc;margin-top: 60px;"></div>
-<div style="justify-content: center;align-items: center;display: flex;margin-top: 20px;">
-  <div class="line"></div>
-  <div style="display:inline-block;width: 25px;padding: 20px;"></div>
-  <div class="line"></div>
-  <div style="display:inline-block;"><img src="/static/img/logo.png" style="width: 70px;padding:0 20px;"></div>
-  <div class="line"></div>
-  <div style="display:inline-block;width: 25px;padding: 20px;"></div>
-  <div class="line" style="display:inline-block;"></div>
-</div>
-<div style="text-align: center;width: 100%;margin-bottom: 20px;">
-  <span class="gov" onclick="nav('http://www.miitbeian.gov.cn')" style="font-size: 10px;">2017-2020 鹿口版权所有 粤ICP备17059829号-4</span>
-</div>
-</body>
-<script src="/static/js/jquery-3.4.1.min.js"></script>
-<script type="text/javascript" src="/static/js/MyPage.js"></script>
-<script type="text/javascript">
-  var time = '2018';
-  var pageSize = 5;
-  var pageIndex = 1;
-  function selectData(that,data) {
-      $("body").find(".dataSe").attr("class","dataNo");
-      this.time = data;
-      if(data == 2018){
-          $(that).attr("class","dataSe")
-      }else if(data == 2019){
-          $(that).attr("class","dataSe")
-      }else{
-          $(that).attr("class","dataSe")
-      }
-      $.ajax({
-              url: '{% url 'news' %}}',
-              data: {'pageSize':pageSize, 'pageIndex':pageIndex, 'year':time},
-              type: "POST",
-              dataType: "json",
-              success: function(res) {
-                  // data = jQuery.parseJSON(data);  //dataType指明了返回数据为json类型，故不需要再反序列化
-                  console.log(res)
-                  $(".newsCard").remove();
-                  if(res.length>0){
-                      $(".num").css("display","block")
-                      $(".bottom_line").css("margin-top","20px")
-                      $(".gov").css("font-size","15px")
-                      for(var i = 0;i < res.length;i++){
-                          var html = '<div class="newsCard" onclick="nav(\''+res[i].url+ '\')">\n' +
-                              '      <div class="cardText">\n' +
-                              '        <div style="margin-top: 20px;font-size: 24px;">'+res[i].title+'&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: 18px;">'+res[i].time+'</span></div>\n' +
-                              '        <div style="margin-top: 20px;"><span style="white-space:normal">'+res[i].digest+'</span></div>\n' +
-                              '      </div>\n' +
-                              '      <div class="top" style="margin-left: 20px;width: 60%;">\n' +
-                              '        <img src="../media/'+res[i].img+'" style="width: 100%;height: auto">\n' +
-                              '      </div>\n' +
-                              '    </div>'
-                          $(".cardData").after(html)
-                      }
-                  }else{
-                      $(".num").css("display","none")
-                      $(".bottom_line").css("margin-top","100px")
-                      $(".gov").css("font-size","20px")
-                  }
-              }
-          })
+{% endblock %}
 
-  }
 
-  P.initMathod({
-      params: {elemId: '#Page',total:{{ count }},pageIndex:'1', pageNum:'6',pageSize:'5'},
-      requestFunction: function () {
-          //P.config.total = parseInt(Math.random() * 10 + 85);//此处模拟总记录变化
-          pageSize = P.config.pageSize;
-          pageIndex = P.config.pageIndex;
-          //TODO ajax异步请求过程,异步获取到的数据总条数赋值给 P.config.total
 
-          //列表渲染自行处理
-          $.ajax({
-              url: '{% url 'news' %}}',
-              data: {'pageSize':P.config.pageSize, 'pageIndex':P.config.pageIndex, 'year':time},
-              type: "POST",
-              dataType: "json",
-              success: function(res) {
-                  // data = jQuery.parseJSON(data);  //dataType指明了返回数据为json类型，故不需要再反序列化
-                  $(".newsCard").remove();
-                  if(res.length > 0){
-                      $(".num").css("display","block")
-                      $(".bottom_line").css("margin-top","20px")
-                      $(".gov").css("font-size","15px")
-                      for(var i = 0;i < res.length;i++){
-                          var html = '<div class="newsCard" onclick="nav(\''+res[i].url+ '\')">\n' +
-                              '      <div class="cardText">\n' +
-                              '        <div style="margin-top: 20px;font-size: 24px;">'+res[i].title+'&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: 18px;">'+res[i].time+'</span></div>\n' +
-                              '        <div style="margin-top: 20px;"><span style="white-space:normal">'+res[i].digest+'</span></div>\n' +
-                              '      </div>\n' +
-                              '      <div class="top" style="margin-left: 20px;width: 60%;">\n' +
-                              '        <img src="../media/'+res[i].img+'" style="width: 100%;height: auto">\n' +
-                              '      </div>\n' +
-                              '    </div>'
-                          $(".cardData").after(html)
-                      }
-                  }else {
-                      $(".num").css("display","none")
-                      $(".bottom_line").css("margin-top","100px")
-                      $(".gov").css("font-size","20px")
-                  }
-              }
-          })
-      }
-  });
-  $(document).ready(mobile());
-  function showImg(){
-      $('.bg_img').show();
-      $('.img').show();
-  }
-  $('.bg_img').click(function(){
-      $('.bg_img').hide();
-      $('.img').hide();
-  });
-  function mobile() {
-      try{
-          document.createEvent("TouchEvent");
-          $("body").css("width","100%");
-          $(".people").css("margin-left","-15px");
-          $(".wenzi").css("left","580px");
-          $(".main").css("display","none");
-          $(".h5").css("display","block");
-      }
-      catch(e){
-          $(".main").css("display","block");
-          $("body").css("width","1440px");
-          $(".h5").css("display","none");
-      }
-  }
-  function test(that,e) {
-    $("body").find(".select").attr("class","none");
-    if(e == 0){
-      mobile();
-      $(".news").css("display","none");
-      $(that).attr("class","select")
-    }else{
-      $(".news").css("display","block");
-      $(".main").css("display","none");
-      $(".h5").css("display","none");
-      $(that).attr("class","select")
-    }
-  }
-  function nav(url) {
-      window.open(url, '_blank');
-  }
-</script>
+{% block css_lukou %}
 <style>
-  @font-face {
-    font-family: "SourceHanSansCN-Regular";
-    src: url("/static/font/SourceHanSansCN-Regular.woff2") format("woff2"),
-    url("/static/font/SourceHanSansCN-Regular.woff") format("woff"),
-    url("/static/font/SourceHanSansCN-Regular.ttf") format("truetype"),
-    url("/static/font/SourceHanSansCN-Regular.eot") format("embedded-opentype"),
-    url("/static/font/SourceHanSansCN-Regular.svg") format("svg");
-    font-weight: normal;
-    font-style: normal;
-  }
-  * {
-    margin: 0 auto;
-    padding: 0;
-    font-family: "SourceHanSansCN-Regular";
-  }
-  body {
-    background:url("/static/img/back.jpg") repeat;
-    background-size: 100%;
-  }
   .mii-page {
     width: 95%;
     max-width: 100%;
@@ -365,10 +194,6 @@
   .mii-container img {
     border-radius: 20px;
     box-shadow: 0 8px 3px -3px rgba(0, 0, 0, .1);
-  }
-  @font-face {
-    font-family: "Heavy";
-    src: url('/static/font/PingFang Heavy.otf');
   }
   .dataTime {
     font-family: Heavy;
@@ -477,4 +302,4 @@
     outline: none;
   }
 </style>
-</html>
+{% endblock %}

@@ -7,11 +7,11 @@ from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 
 
-def index(reuqest):
+def index(request):
     news_count = News.objects.count()
     tdk_data = Tdk.objects.all().first()
 
-    return render(reuqest, 'main.html', {'count':news_count, 'title':tdk_data.title, 'description':tdk_data.description, 'keyword':tdk_data.keyword})
+    return render(request, 'news.html', {'count':news_count, 'title':tdk_data.title, 'description':tdk_data.description, 'keyword':tdk_data.keyword})
 
 @csrf_exempt
 def news(request):

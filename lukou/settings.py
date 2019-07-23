@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'home.apps.HomeConfig',
-    'mdeditor'
+    'mdeditor',
+    'markdown_deux'
 ]
 
 MIDDLEWARE = [
