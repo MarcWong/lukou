@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from mdeditor.fields import MDTextField
 # Create your models here.
 
 class News(models.Model):
@@ -13,6 +14,7 @@ class News(models.Model):
     time = models.DateTimeField(default=timezone.now, verbose_name='日期')
     create_time = models.DateTimeField(auto_now_add=True, verbose_name='创建时间')
     update_time = models.DateTimeField(auto_now=True, verbose_name='更新时间')
+    content = MDTextField(verbose_name='内容', default='')
 
     class Meta:
         verbose_name_plural='新闻'
