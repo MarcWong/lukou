@@ -58,7 +58,7 @@
                       $(".bottom_line").css("margin-top","20px")
                       $(".gov").css("font-size","15px")
                       for(var i = 0;i < res.length;i++){
-                          var html = '<div class="newsCard" onclick="nav(\''+res[i].url+ '\')">\n' +
+                          var html = '<div class="newsCard" onclick="nav("http:\/\/127.0.0.1:8000\/new_markdown\/'+ res[i].id + '")">\n' +
                               '      <div class="cardText">\n' +
                               '        <div style="margin-top: 20px;font-size: 24px;">'+res[i].title+'&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: 18px;">'+res[i].time+'</span></div>\n' +
                               '        <div style="margin-top: 20px;"><span style="white-space:normal">'+res[i].digest+'</span></div>\n' +

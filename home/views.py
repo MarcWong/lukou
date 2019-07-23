@@ -32,6 +32,7 @@ def news(request):
         print(item)
         json_dict = {}
         json_dict["title"] = item.title
+        json_dict["id"] = item.id
         json_dict["digest"] = item.digest
         json_dict["img"] = str(item.img)
         json_dict["url"] = item.url
