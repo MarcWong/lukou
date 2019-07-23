@@ -11,8 +11,9 @@
 <div class="bg_img" style="background:#191919;opacity:0.8;display:none;position:fixed;width:100%;height:100%;"></div>
 <img class="img" src="/static/img/bdbk.png" style="display:none;position:absolute;top:10%;left:0;width:90%;margin-left: 5%;z-index: 3"/>
 
+<div style="margin:4vw;">
 {% block content %}{% endblock %}
-
+</div>
 
 <div style="width: 100%;height: 1px;background-color: #cccccc;margin-top: 60px;"></div>
 <div style="justify-content: center;align-items: center;display: flex;margin-top: 20px;">
@@ -58,7 +59,7 @@
                       $(".bottom_line").css("margin-top","20px")
                       $(".gov").css("font-size","15px")
                       for(var i = 0;i < res.length;i++){
-                          var html = '<div class="newsCard" onclick="nav("http:\/\/127.0.0.1:8000\/new_markdown\/'+ res[i].id + '")">\n' +
+                          var html = '<div class="newsCard" onclick="nav(\''+ '/new_markdown?id=' + res[i].id + '\')">\n' +
                               '      <div class="cardText">\n' +
                               '        <div style="margin-top: 20px;font-size: 24px;">'+res[i].title+'&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: 18px;">'+res[i].time+'</span></div>\n' +
                               '        <div style="margin-top: 20px;"><span style="white-space:normal">'+res[i].digest+'</span></div>\n' +
@@ -101,7 +102,7 @@
                       $(".bottom_line").css("margin-top","20px")
                       $(".gov").css("font-size","15px")
                       for(var i = 0;i < res.length;i++){
-                          var html = '<div class="newsCard" onclick="nav(\''+res[i].url+ '\')">\n' +
+                          var html = '<div class="newsCard" onclick="nav(\''+ '/new_markdown?id=' + res[i].id + '\')">\n' +
                               '      <div class="cardText">\n' +
                               '        <div style="margin-top: 20px;font-size: 24px;">'+res[i].title+'&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: 18px;">'+res[i].time+'</span></div>\n' +
                               '        <div style="margin-top: 20px;"><span style="white-space:normal">'+res[i].digest+'</span></div>\n' +

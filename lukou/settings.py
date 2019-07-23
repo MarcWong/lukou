@@ -83,7 +83,7 @@ DATABASES = {
         'NAME': 'lukou',
         'HOST': '127.0.0.1',
         'USER': 'root',
-        'PASSWORD': 'root',
+        'PASSWORD': '',
         'PORT': 3306,
         'OPTIONS': {'charset': 'utf8mb4'},
         'ATOMIC_REQUESTS': True
