@@ -1,6 +1,69 @@
 {% extends 'base.html' %}
 
 {% block content %}
-{{ res }}
+<div style="margin:10px auto;font-size: 26px;display: table;">
+  <div class="line"></div>
+  <div style="display:inline-block;width: 35px;padding: 40px;"><div class="none" onclick="nav('/')"><span>首页</span></div></div>
+  <div class="line"></div>
+  <div style="display:inline-block;"><img src="/static/img/logo.png" style="width: 70px;padding:0 80px;"></div>
+  <div class="line"></div>
+  <div style="display:inline-block;width: 35px;padding: 40px;"><div class="select"><span>新闻</span></div></div>
+  <div class="line" style="display:inline-block;"></div>
+</div>
 
+<div class="news">
+  <div style="width: 80%;height: 1px;background-color: #cccccc;margin-left: 10%"></div>
+  <div class="cardData" style="position: absolute;left: 4%;">
+    <div style="font-size: 24px;color: #999999">日期</div>
+    <div class="dataTime">
+      {% if request.GET.years == '2018' %}
+      <span class="dataSe" onclick="selectData(this,2018)">2018&nbsp;&nbsp;</span>
+      <span class="dataNo" onclick="selectData(this,2019)">2019&nbsp;&nbsp;</span>
+      <span class="dataNo" onclick="selectData(this,2020)">2020</span>
+      {% elif request.GET.years == '2019' %}
+      <span class="dataNo" onclick="selectData(this,2018)">2018&nbsp;&nbsp;</span>
+      <span class="dataSe" onclick="selectData(this,2019)">2019&nbsp;&nbsp;</span>
+      <span class="dataNo" onclick="selectData(this,2020)">2020</span>
+      {% else %}
+      <span class="dataNo" onclick="selectData(this,2018)">2018&nbsp;&nbsp;</span>
+      <span class="dataNo" onclick="selectData(this,2019)">2019&nbsp;&nbsp;</span>
+      <span class="dataSe" onclick="selectData(this,2020)">2020</span>
+      {% endif %}
+    </div>
+  </div>
+
+  {% for i in res %}
+  <div class="newsCard" onclick="nav('/new_markdown?id={{i.id}}')">
+    <div class="cardText">
+      <div style="margin-top: 20px;font-size: 24px;">
+        <span style="font-size: 18px;">{{i.time}}</span>
+      </div>
+      <div style="margin-top: 20px;">
+        <span style="white-space:normal">{{i.digest}}</span>
+      </div>
+    </div>
+    <div class="top">
+      <img src="../media/{{i.img}}" style="width: 100%;height: auto"/>
+    </div>
+  </div>
+  {% endfor %}
+
+  <div class="num" style="display: block;">
+    <div class="page" id="Page" style="justify-content: center;align-items: center;display: flex;"></div>
+  </div>
+  <div class="bottom_line" style="width: 80%;height: 1px;background-color: #cccccc;margin-left: 10%;margin-top: 20px;"></div>
+</div>
+                
+{% endblock %}
+
+
+{% block js_lukou %}
+<script>
+  function selectData(that,data) {
+    $("body").find(".dataSe").attr("class","dataNo");
+
+    $(that).attr("class","dataSe")
+    window.location.href="/news/?years="+data
+  }
+</script>
 {% endblock %}

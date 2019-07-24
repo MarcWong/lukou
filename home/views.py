@@ -4,6 +4,7 @@ from django.shortcuts import render, render_to_response
 from django.http import HttpResponse, JsonResponse
 from .models import News,Tdk
 from django.views.decorators.csrf import csrf_exempt
+import markdown
 # Create your views here.
 
 
@@ -18,8 +19,8 @@ def news(request):
 
     try:
         curpage = int(request.POST.get('pageIndex', '1'))
-        pagesize = int(request.POST.get('pageSize', '1'))
-        year = request.POST.get('year','2018')
+        pagesize = int(request.POST.get('pageSize', '5'))
+        year = request.POST.get('year','2019')
 
     except ValueError:
         curpage = 1
@@ -27,7 +28,6 @@ def news(request):
     startPos = (curpage - 1) * pagesize
     endPos = startPos + pagesize
 
-    # news_data = News.objects.all()
     news_data = News.objects.filter(time__year=year).all()[startPos:endPos]
     print(news_data)
     json_list = []
@@ -48,4 +48,5 @@ def news(request):
 def new_markdown(request):
     id = request.GET['id']
     news_data = News.objects.filter(id=id).first()
-    return render(request, 'news_md.html', {"content":news_data.content})
+    content = markdown.markdown(news_data.content)
+    return render(request, 'news_md.html', {"content":content})
