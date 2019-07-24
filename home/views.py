@@ -36,7 +36,8 @@ def news(request):
 
 
 def new_markdown(request):
-    id = request.GET['id']
-    news_data = News.objects.filter(id=id).first()
-    content = markdown.markdown(news_data.content)
-    return render(request, 'news_md.html', {"content":content, 'title':news_data.title, 'description':news_data.description, 'keyword':news_data.keyword})
+    return HttpResponse('hello world')
+    # id = request.GET['id']
+    # news_data = News.objects.filter(id=id).first()
+    # content = markdown.markdown(news_data.content)
+    # return render(request, 'news_md.html', {"content":content, 'title':news_data.title, 'description':news_data.description, 'keyword':news_data.keyword})
