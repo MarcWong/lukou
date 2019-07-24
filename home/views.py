@@ -16,28 +16,26 @@ def index(request):
     return render(request, 'main.html', {'count':news_count, 'title':tdk_data.title, 'description':tdk_data.description, 'keyword':tdk_data.keyword})
 
 def news(request):
-    return HttpResponse('hello')
-    # year = request.GET.get('year','2019')
-    #
-    # news_data = News.objects.filter(time__year=year).all().order_by('-update_time')
-    # paginator = Paginator(news_data, 1)
-    # page= request.GET.get('page', 1)  # 获取url的页码参数。GET返回字典，page_num默认为1
-    # try:
-    #     #通过获取上面的page参数，查询此page是否为整数并且是否可用
-    #     subject_obj = paginator.page(page)
-    # except PageNotAnInteger:
-    #     subject_obj = paginator.page(1)
-    # except (EmptyPage, InvalidPage):
-    #     subject_obj = paginator.page(paginator.num_pages)
-    #
-    # page_of_blogs = paginator.get_page(page)
-    #
-    # return render(request, 'news.html', {"res":page_of_blogs.object_list,'subject_list': subject_obj})
+    year = request.GET.get('year','2019')
+
+    news_data = News.objects.filter(time__year=year).all().order_by('-update_time')
+    paginator = Paginator(news_data, 1)
+    page= request.GET.get('page', 1)  # 获取url的页码参数。GET返回字典，page_num默认为1
+    try:
+        #通过获取上面的page参数，查询此page是否为整数并且是否可用
+        subject_obj = paginator.page(page)
+    except PageNotAnInteger:
+        subject_obj = paginator.page(1)
+    except (EmptyPage, InvalidPage):
+        subject_obj = paginator.page(paginator.num_pages)
+
+    page_of_blogs = paginator.get_page(page)
+
+    return render(request, 'news.html', {"res":page_of_blogs.object_list,'subject_list': subject_obj})
 
 
 def new_markdown(request):
-    return HttpResponse('hello world')
-    # id = request.GET['id']
-    # news_data = News.objects.filter(id=id).first()
-    # content = markdown.markdown(news_data.content)
-    # return render(request, 'news_md.html', {"content":content, 'title':news_data.title, 'description':news_data.description, 'keyword':news_data.keyword})
+    id = request.GET['id']
+    news_data = News.objects.filter(id=id).first()
+    content = markdown.markdown(news_data.content)
+    return render(request, 'news_md.html', {"content":content, 'title':news_data.title, 'description':news_data.description, 'keyword':news_data.keyword})
