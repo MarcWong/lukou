@@ -3,6 +3,7 @@
 {% block content %}
 
 <div style="margin:4vw;">
+  <h1 style="padding-bottom:24px;">{% if title%}{{ title }}{% endif %}</h1>
     {{ content | safe }}
 </div>
 {% endblock %}

@@ -21,7 +21,7 @@ def news(request):
     year = request.GET.get('year','2019')
 
     news_data = News.objects.filter(time__year=year).all().order_by('-update_time')
-    paginator = Paginator(news_data, 10)
+    paginator = Paginator(news_data, 1)
     page= request.GET.get('page', 1)  # 获取url的页码参数。GET返回字典，page_num默认为1
     try:
         #通过获取上面的page参数，查询此page是否为整数并且是否可用

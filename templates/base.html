@@ -1,80 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <link rel="icon" href="/static/img/logo.png" type="image/x-icon" sizes="96*96">
   <meta name="referrer" content="never">
   <meta name="keywords" content="{% if keyword%}{{ keyword }}{% else %}鹿口、鹿口避孕套、鹿口安全套、鹿口润滑液{% endif %}">
-  <meta name="description" content="{% if description%}{{ description }}{% else %}专为女性设计的安全套品牌，主要有鹿口避孕套（安全套）、鹿口润滑液等。{% endif %}">
+  <meta name="description"
+    content="{% if description%}{{ description }}{% else %}专为女性设计的安全套品牌，主要有鹿口避孕套（安全套）、鹿口润滑液等。{% endif %}">
   <title>{% if title%}{{ title }}{% else %}鹿口,保护女性健康安全的避孕套、润滑液品牌 - 鹿口官网{% endif %}</title>
   <link rel="stylesheet" href="/static/css/pagination.css">
 </head>
+
 <body>
-<div class="bg_img" style="background:#191919;opacity:0.8;display:none;position:fixed;width:100%;height:100%;"></div>
-<img class="img" src="/static/img/bdbk.png" style="display:none;position:absolute;top:10%;left:0;width:90%;margin-left: 5%;z-index: 3"/>
+  <div class="bg_img" style="background:#191919;opacity:0.8;display:none;position:fixed;width:100%;height:100%;"></div>
+  <img class="img" src="/static/img/bdbk.png"
+    style="display:none;position:absolute;top:10%;left:0;width:90%;margin-left: 5%;z-index: 3" />
 
-{% block content %}{% endblock %}
+  {% block content %}{% endblock %}
 
-<div style="width: 100%;height: 1px;background-color: #cccccc;margin-top: 60px;"></div>
-<div style="justify-content: center;align-items: center;display: flex;margin-top: 20px;">
-  <div class="line"></div>
-  <div style="display:inline-block;width: 25px;padding: 20px;"></div>
-  <div class="line"></div>
-  <div style="display:inline-block;"><img src="/static/img/logo.png" style="width: 70px;padding:0 20px;"></div>
-  <div class="line"></div>
-  <div style="display:inline-block;width: 25px;padding: 20px;"></div>
-  <div class="line" style="display:inline-block;"></div>
-</div>
-<div style="text-align: center;width: 100%;margin-bottom: 20px;">
-  <span class="gov" onclick="nav('http://www.miitbeian.gov.cn')" style="font-size: 10px;">2017-2020 鹿口版权所有 粤ICP备17059829号-4</span>
-</div>
+  <div style="width: 100%;height: 1px;background-color: #cccccc;margin-top: 60px;"></div>
+  <div style="justify-content: center;align-items: center;display: flex;margin-top: 20px;">
+    <div class="line"></div>
+    <div style="display:inline-block;width: 25px;padding: 20px;"></div>
+    <div class="line"></div>
+    <div style="display:inline-block;"><img src="/static/img/logo.png" style="width: 70px;padding:0 20px;"></div>
+    <div class="line"></div>
+    <div style="display:inline-block;width: 25px;padding: 20px;"></div>
+    <div class="line" style="display:inline-block;"></div>
+  </div>
+  <div style="text-align: center;width: 100%;margin-bottom: 20px;">
+    <span class="gov" onclick="nav('http://www.miitbeian.gov.cn')" style="font-size: 10px;">2017-2020 鹿口版权所有
+      粤ICP备17059829号-4</span>
+  </div>
 </body>
 <script src="/static/js/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
-  var time = '2019';
-  var pageSize = 5;
-  var pageIndex = 1;
-
   $(document).ready(mobile());
-  function showImg(){
-      $('.bg_img').show();
-      $('.img').show();
+
+  function showImg() {
+    $('.bg_img').show();
+    $('.img').show();
   }
-  $('.bg_img').click(function(){
-      $('.bg_img').hide();
-      $('.img').hide();
+  $('.bg_img').click(function () {
+    $('.bg_img').hide();
+    $('.img').hide();
   });
+
   function mobile() {
-      console.log('mobile')
-      try{
-          document.createEvent("TouchEvent");
-          $("body").css("width","100%");
-          $(".people").css("margin-left","-15px");
-          $(".wenzi").css("left","580px");
-          $(".main").css("display","none");
-          $(".h5").css("display","block");
-      }
-      catch(e){
-          $(".main").css("display","block");
-          $("body").css("width","1440px");
-          $(".h5").css("display","none");
-      }
-  }
-  function test(that,e) {
-    $("body").find(".select").attr("class","none");
-    if(e == 0){
-      mobile();
-      $(".news").css("display","none");
-      $(that).attr("class","select")
-    }else{
-      $(".news").css("display","block");
-      $(".main").css("display","none");
-      $(".h5").css("display","none");
-      $(that).attr("class","select")
+    try {
+      document.createEvent("TouchEvent");
+      $("body").css("width", "100%");
+      $(".people").css("margin-left", "-15px");
+      $(".wenzi").css("left", "580px");
+      $(".main").css("display", "none");
+      $(".h5").css("display", "block");
+    } catch (e) {
+      $(".main").css("display", "block");
+      $("body").css("width", "1440px");
+      $(".h5").css("display", "none");
     }
   }
+
   function nav(url) {
-      window.open(url, '_blank');
+    window.location.href = url
   }
 </script>
 
@@ -84,125 +73,76 @@
   @font-face {
     font-family: "SourceHanSansCN-Regular";
     src: url("/static/font/SourceHanSansCN-Regular.woff2") format("woff2"),
-    url("/static/font/SourceHanSansCN-Regular.woff") format("woff"),
-    url("/static/font/SourceHanSansCN-Regular.ttf") format("truetype"),
-    url("/static/font/SourceHanSansCN-Regular.eot") format("embedded-opentype"),
-    url("/static/font/SourceHanSansCN-Regular.svg") format("svg");
+      url("/static/font/SourceHanSansCN-Regular.woff") format("woff"),
+      url("/static/font/SourceHanSansCN-Regular.ttf") format("truetype"),
+      url("/static/font/SourceHanSansCN-Regular.eot") format("embedded-opentype"),
+      url("/static/font/SourceHanSansCN-Regular.svg") format("svg");
     font-weight: normal;
     font-style: normal;
   }
+
   @font-face {
     font-family: "Heavy";
     src: url('/static/font/PingFang Heavy.otf');
   }
+
   * {
     margin: 0 auto;
     padding: 0;
     font-family: "SourceHanSansCN-Regular";
   }
+
   body {
-    background:url("/static/img/back.jpg") repeat;
+    background: url("/static/img/back.jpg") repeat;
     background-size: 100%;
   }
-  .dataTime {
-    font-family: Heavy;
-  }
-  .cardText {
-    width: 30%;
-    height: 500px;
-    display: flex;
-    flex-direction:column;
-    justify-content: center;
-  }
-  .newsCard {
-    padding:10px 40px;
-    height: 500px;
-    cursor:pointer;
-    display: flex;
-    justify-content: space-between;
-  }
-  .dataSe {
-    font-size: 20px;
-    font-weight: 400;
-  }
-  .dataNo {
-    font-size: 16px;
-  }
+
   .top {
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
     padding: 0 40px;
   }
+
   .top img {
     width: 100%;
     height: 500px;
   }
+
   .line {
     width: 1px;
     height: 10px;
     background-color: #cccccc;
-    display:inline-block;
-    margin:15px;
+    display: inline-block;
+    margin: 15px;
   }
+
   .select {
     background-color: #318FE1;
     color: white;
     padding: 5px;
     border-radius: 5px;
-    cursor:pointer;
+    cursor: pointer;
   }
+
   .none {
     color: #999999;
     padding: 5px;
-    cursor:pointer;
+    cursor: pointer;
   }
-  .page ul{
-    padding:0;
-  }
-  .page ul::after{
-    content: '';
-    display: block;
-    clear: both;
-  }
-  .page ul li{
-    float: left;
-    width:auto;
-    min-width:32px;
-    height: 30px;
-    line-height:30px;
-    list-style: none;
-  }
-  .page a{
-    color:#aaa;
+
+  .page a {
+    color: #aaa;
     font-family: "微软雅黑";
-    padding:0 10px;
+    padding: 0 10px;
     text-decoration: none;
     display: block;
     text-align: center;
     border: 1px solid #ccc;
     border-left: none;
   }
-  .page ul li:first-child a{
-    border-left: 1px solid #ccc;
-  }
 
-  .page ul li a:hover{
-    background-color: dodgerblue;
-  }
-  .page ul li a:hover{
-    color: white;
-  }
-  .page .disabled a:hover{
-    background-color: white;
-    cursor:not-allowed;
-    color: #aaa;
-  }
-  .page .active a{
-    background-color: dodgerblue;
-    color: white;
-  }
   button {
     background-color: transparent;
     border: 1px #cccccc solid;
@@ -210,5 +150,7 @@
     /*border: 1px solid transparent; */
     outline: none;
   }
+
 </style>
+
 </html>
