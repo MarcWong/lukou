@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-
 {% block content %}
 <div style="margin:10px auto;font-size: 26px;display: table;">
   <div class="line"></div>
@@ -48,12 +47,35 @@
   </div>
   {% endfor %}
 
-  <div class="num" style="display: block;">
-    <div class="page" id="Page" style="justify-content: center;align-items: center;display: flex;"></div>
-  </div>
-  <div class="bottom_line" style="width: 80%;height: 1px;background-color: #cccccc;margin-left: 10%;margin-top: 20px;"></div>
+{#  <div class="num" style="display: block;">#}
+{#    <div class="page" id="Page" style="justify-content: center;align-items: center;display: flex;"></div>#}
+{#  </div>#}
+{#  <div class="bottom_line" style="width: 80%;height: 1px;background-color: #cccccc;margin-left: 10%;margin-top: 20px;"></div>#}
+<div class="paginator" style=" text-align: center;">
+    <ul class="pagination">
+        <li>
+            {# 上一页 #}
+            <a href="#">&laquo;</a>
+        </li>
+        {# 页码 #}
+        {% for page_num in page_range %}
+            {% if page_num == page_of_blogs.number %}
+                <li class="active"><span>{{ page_num }}</span></li>
+            {% else %}
+                {% if page_num == '...' %}
+                    <li><span>{{ page_num }}</span></li>
+                {% else %}
+                    <li><a href="{% url 'news' %}?page={{ page_num }}&year=2019">{{ page_num }}</a></li>
+                {% endif %}
+
+            {% endif %}
+        {% endfor %}
+        <li>
+            {# 下一页 #}
+           <a href="#">&raquo;</a>
+        </li>
+    </ul>
 </div>
-                
 {% endblock %}
 
 
