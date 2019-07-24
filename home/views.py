@@ -26,7 +26,10 @@ def news(request):
 
     startPos = (curpage - 1) * pagesize
     endPos = startPos + pagesize
+
+    # news_data = News.objects.all()
     news_data = News.objects.filter(time__year=year).all()[startPos:endPos]
+    print(news_data)
     json_list = []
     for item in news_data:
         print(item)
@@ -39,9 +42,10 @@ def news(request):
         json_dict["time"] = str(item.time.strftime("%Y-%m-%d"))
         json_list.append(json_dict)
     # print(json_list)
-    return HttpResponse(json.dumps(json_list), content_type="application/json")
+    return render(request, 'news.html', {"res":json_list})
+    # return HttpResponse(json.dumps(json_list), content_type="application/json")
 
 def new_markdown(request):
     id = request.GET['id']
     news_data = News.objects.filter(id=id).first()
-    return render(request, 'news.html', {"content":news_data.content})
+    return render(request, 'news_md.html', {"content":news_data.content})
