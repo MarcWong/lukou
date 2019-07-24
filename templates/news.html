@@ -64,30 +64,37 @@
 {#    <div class="page" id="Page" style="justify-content: center;align-items: center;display: flex;"></div>#}
 {#  </div>#}
 {#  <div class="bottom_line" style="width: 80%;height: 1px;background-color: #cccccc;margin-left: 10%;margin-top: 20px;"></div>#}
-<div class="paginator pagination" style=" text-align: center;">
-    <ul>
-        <li>
-            {# 上一页 #}
-            <a href="#">&laquo;</a>
-        </li>
-        {# 页码 #}
-        {% for page_num in page_range %}
-            {% if page_num == page_of_blogs.number %}
-                <li class="active"><span>{{ page_num }}</span></li>
-            {% else %}
-                {% if page_num == '...' %}
-                    <li><span>{{ page_num }}</span></li>
-                {% else %}
-                    <li><a href="{% url 'news' %}?page={{ page_num }}&year={{request.GET.year}}">{{ page_num }}</a></li>
-                {% endif %}
 
-            {% endif %}
-        {% endfor %}
-        <li>
-            {# 下一页 #}
-           <a href="#">&raquo;</a>
-        </li>
-    </ul>
+    <div class="paginator pagination" style=" text-align: center;">
+                    <ul>
+                        <!—  分页功能前端的方向箭头代码-->
+                        {% if subject_list.has_previous %}
+                        <li class="enabled">
+                            <a href="{% url 'news' %}?page={{ subject_list.previous_page_number }}&year={{request.GET.year}}" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        {% endif %}
+                        <!—  分页功能显示页码的中间部分代码-->
+                        {% for page_num in subject_list.paginator.page_range %}
+                            {% if page_num == subject_list.number %}
+                                 <li class="active"><span>{{ page_num }}</span></li>
+                            {% else %}
+                                <li>
+                                    <a href="{% url 'news' %}?page={{ page_num }}&year={{request.GET.year}}">{{ page_num }}
+                                    </a>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                        <!—  分页功能末端的方向箭头代码-->
+                        {% if  subject_list.has_next %}
+                        <li class="enabled">
+                            <a href="{% url 'news' %}?page={{ subject_list.next_page_number }}&year={{request.GET.year}}" aria-label="last">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                        {% endif %}
+                    </ul>
 </div>
 {% endblock %}
 
