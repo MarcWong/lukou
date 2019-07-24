@@ -14,6 +14,8 @@ class News(models.Model):
     time = models.DateTimeField(default=timezone.now, verbose_name='日期')
     create_time = models.DateTimeField(auto_now_add=True, verbose_name='创建时间')
     update_time = models.DateTimeField(auto_now=True, verbose_name='更新时间')
+    description = models.CharField(max_length=128, verbose_name='描述', default='')
+    keyword = models.CharField(max_length=128, verbose_name='关键词', default='')
     content = MDTextField(verbose_name='内容', default='')
 
     class Meta:
