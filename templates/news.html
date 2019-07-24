@@ -1,5 +1,18 @@
 {% extends 'base.html' %}
 {% block content %}
+<div style="margin: 0 auto;">
+  <div class="people" style="position: absolute;z-index: 2;margin-left: 15px;">
+    <img src="/static/img/toppeople.png" style="margin-top: -130%;margin-left: 75%;">
+    <div style="width: 2px;height: 300px;background-color:white;position: absolute;margin-left: 120%;margin-top: 64%"></div>
+  </div>
+  <div class="wenzi" style="position: absolute;z-index: 2;left: 990px;">
+    <img src="/static/img/wenzi.png" style="transform:scale(0.7)">
+  </div>
+  <div class="top" style="border-radius: 0 0 50% 50% / 0 0 50px 50px;">
+    <img src="/static/img/DSC06650.jpg">
+  </div>
+</div>
+
 <div style="margin:10px auto;font-size: 26px;display: table;">
   <div class="line"></div>
   <div style="display:inline-block;width: 35px;padding: 40px;"><div class="none" onclick="nav('/')"><span>首页</span></div></div>
@@ -15,18 +28,18 @@
   <div class="cardData" style="position: absolute;left: 4%;">
     <div style="font-size: 24px;color: #999999">日期</div>
     <div class="dataTime">
-      {% if request.GET.years == '2018' %}
+      {% if request.GET.year == '2018' %}
       <span class="dataSe" onclick="selectData(this,2018)">2018&nbsp;&nbsp;</span>
       <span class="dataNo" onclick="selectData(this,2019)">2019&nbsp;&nbsp;</span>
       <span class="dataNo" onclick="selectData(this,2020)">2020</span>
-      {% elif request.GET.years == '2019' %}
-      <span class="dataNo" onclick="selectData(this,2018)">2018&nbsp;&nbsp;</span>
-      <span class="dataSe" onclick="selectData(this,2019)">2019&nbsp;&nbsp;</span>
-      <span class="dataNo" onclick="selectData(this,2020)">2020</span>
-      {% else %}
+      {% elif request.GET.year == '2020'%}
       <span class="dataNo" onclick="selectData(this,2018)">2018&nbsp;&nbsp;</span>
       <span class="dataNo" onclick="selectData(this,2019)">2019&nbsp;&nbsp;</span>
       <span class="dataSe" onclick="selectData(this,2020)">2020</span>
+      {% else %}
+      <span class="dataNo" onclick="selectData(this,2018)">2018&nbsp;&nbsp;</span>
+      <span class="dataSe" onclick="selectData(this,2019)">2019&nbsp;&nbsp;</span>
+      <span class="dataNo" onclick="selectData(this,2020)">2020</span>
       {% endif %}
     </div>
   </div>
@@ -51,8 +64,8 @@
 {#    <div class="page" id="Page" style="justify-content: center;align-items: center;display: flex;"></div>#}
 {#  </div>#}
 {#  <div class="bottom_line" style="width: 80%;height: 1px;background-color: #cccccc;margin-left: 10%;margin-top: 20px;"></div>#}
-<div class="paginator" style=" text-align: center;">
-    <ul class="pagination">
+<div class="paginator pagination" style=" text-align: center;">
+    <ul>
         <li>
             {# 上一页 #}
             <a href="#">&laquo;</a>
@@ -65,7 +78,7 @@
                 {% if page_num == '...' %}
                     <li><span>{{ page_num }}</span></li>
                 {% else %}
-                    <li><a href="{% url 'news' %}?page={{ page_num }}&year=2019">{{ page_num }}</a></li>
+                    <li><a href="{% url 'news' %}?page={{ page_num }}&year={{request.GET.year}}">{{ page_num }}</a></li>
                 {% endif %}
 
             {% endif %}

@@ -18,7 +18,7 @@ def index(request):
 @csrf_exempt
 def news(request):
 
-    year = request.GET.get('years','2019')
+    year = request.GET.get('year','2019')
 
     news_data = News.objects.filter(time__year=year).all().order_by('-update_time')
     paginator = Paginator(news_data, 2)
