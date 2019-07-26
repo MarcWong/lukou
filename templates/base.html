@@ -30,8 +30,8 @@
     <div class="line" style="display:inline-block;"></div>
   </div>
   <div style="text-align: center;width: 100%;margin-bottom: 20px;">
-    <span class="gov" onclick="nav('http://www.miitbeian.gov.cn')" style="font-size: 10px;">2017-2020 鹿口版权所有
-      粤ICP备17059829号-4</span>
+    <div class="gov" onclick="navNew('http://beian.miit.gov.cn')" style="font-size: 10px;">2017-2020 鹿口版权所有
+      粤ICP备17059829号-4</div>
   </div>
 </body>
 <script src="/static/js/jquery-3.4.1.min.js"></script>
@@ -64,6 +64,9 @@
 
   function nav(url) {
     window.location.href = url
+  }
+  function navNew(url) {
+    window.open(url, 'blank_')
   }
 </script>
 
@@ -149,6 +152,10 @@
     padding: 5px 15px;
     /*border: 1px solid transparent; */
     outline: none;
+  }
+
+  .gov{
+    cursor: pointer;
   }
 
 </style>
