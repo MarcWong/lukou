@@ -15,10 +15,10 @@ def index(request):
 
     return render(request, 'main.html', {'count':news_count, 'title':tdk_data.title, 'description':tdk_data.description, 'keyword':tdk_data.keyword})
 
-def news(request):
+def news_index(request):
     year = request.GET.get('year','2019')
 
-    news_data = News.objects.filter(time__year=year).all().order_by('-update_time')
+    news_data = News.objects.filter(time__year=year).all().order_by('-time')
     paginator = Paginator(news_data, 5)
     page= request.GET.get('page', 1)  # 获取url的页码参数。GET返回字典，page_num默认为1
     try:
@@ -34,7 +34,7 @@ def news(request):
     return render(request, 'news.html', {"res":page_of_blogs.object_list,'subject_list': subject_obj})
 
 
-def new_markdown(request):
+def news(request):
     id = request.GET['id']
     news_data = News.objects.filter(id=id).first()
     content = markdown.markdown(news_data.content)

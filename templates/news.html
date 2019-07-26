@@ -50,7 +50,7 @@
   </div>
 
   {% for i in res %}
-  <div class="newsCard" onclick="nav('/new_markdown?id={{i.id}}')">
+  <div class="newsCard" onclick="nav('/news/?id={{i.id}}')">
     <div class="cardText">
       <div style="margin: 20px 0 0;">
         <div style="font-size: 24px;">{{i.title}}</div>
@@ -75,14 +75,14 @@
     <ul>
       <!— 分页功能前端-->
         <li>
-          <a href="{% url 'news' %}?page=1&year={{request.GET.year}}"
+          <a href="{% url 'news_index' %}?page=1&year={{request.GET.year}}"
             aria-label="Previous">
             <span aria-hidden="true">首页</span>
           </a>
         </li>
         {% if subject_list.has_previous %}
         <li>
-          <a href="{% url 'news' %}?page={{ subject_list.previous_page_number }}&year={{request.GET.year}}"
+          <a href="{% url 'news_index' %}?page={{ subject_list.previous_page_number }}&year={{request.GET.year}}"
             aria-label="Previous">
             <span aria-hidden="true">上一页</span>
           </a>
@@ -94,7 +94,7 @@
           <li class="active"><span>{{ page_num }}</span></li>
           {% else %}
           <li>
-            <a href="{% url 'news' %}?page={{ page_num }}&year={{request.GET.year}}">{{ page_num }}
+            <a href="{% url 'news_index' %}?page={{ page_num }}&year={{request.GET.year}}">{{ page_num }}
             </a>
           </li>
           {% endif %}
@@ -102,14 +102,14 @@
           <!— 分页功能末端-->
           {% if  subject_list.has_next %}
           <li>
-            <a href="{% url 'news' %}?page={{ subject_list.next_page_number }}&year={{request.GET.year}}"
+            <a href="{% url 'news_index' %}?page={{ subject_list.next_page_number }}&year={{request.GET.year}}"
               aria-label="last">
               <span aria-hidden="true">下一页</span>
             </a>
           </li>
           {% endif %}
           <li>
-          <a href="{% url 'news' %}?page=-1&year={{request.GET.year}}"
+          <a href="{% url 'news_index' %}?page=-1&year={{request.GET.year}}"
             aria-label="Previous">
             <span aria-hidden="true">末页</span>
           </a>
@@ -124,7 +124,7 @@
     function selectData(that, data) {
       $("body").find(".dataSe").attr("class", "dataNo");
       $(that).attr("class", "dataSe")
-      window.location.href = "/news/?year=" + data
+      window.location.href = "/news_index/?year=" + data
     }
   </script>
   {% endblock %}
