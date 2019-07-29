@@ -31,11 +31,20 @@ def news_index(request):
 
     page_of_blogs = paginator.get_page(page)
 
-    return render(request, 'news.html', {"res":page_of_blogs.object_list,'subject_list': subject_obj})
+    return render(request, 'news.html', {'res':page_of_blogs.object_list,'subject_list': subject_obj})
 
 
 def news(request):
     id = request.GET['id']
     news_data = News.objects.filter(id=id).first()
+    news_last = News.objects.exclude(id=id).order_by('?').first()
+    news_next = News.objects.exclude(id=id).order_by('?').first()
     content = markdown.markdown(news_data.content)
-    return render(request, 'news_md.html', {"content":content, 'title':news_data.title, 'description':news_data.description, 'keyword':news_data.keyword})
+    return render(request, 'news_md.html', {
+        'content': content,
+        'title': news_data.title,
+        'description': news_data.description,
+        'keyword': news_data.keyword,
+        'last_id':news_last.id ,
+        'next_id':news_next.id
+    })

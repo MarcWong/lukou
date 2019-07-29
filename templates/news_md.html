@@ -6,4 +6,26 @@
   <h1 style="padding-bottom:24px;">{% if title%}{{ title }}{% endif %}</h1>
     {{ content | safe }}
 </div>
+
+<div class="paginator pagination" style=" text-align: center;">
+  <ul>
+    {% if last_id %}
+    <li>
+      <a href="{% url 'news' %}?id={{ last_id }}"
+        aria-label="Previous">
+        <span aria-hidden="true">上一篇</span>
+      </a>
+    </li>
+    {% endif %}
+    <!— 分页功能末端-->
+    {% if next_id %}
+    <li>
+      <a href="{% url 'news' %}?id={{ next_id }}"
+        aria-label="last">
+        <span aria-hidden="true">下一篇</span>
+      </a>
+    </li>
+    {% endif %}
+  </ul>
+</div>
 {% endblock %}
