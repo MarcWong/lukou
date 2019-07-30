@@ -2,25 +2,25 @@
 {% block content %}
 <div style="margin: 0 auto;">
   <div class="people" style="position: absolute;z-index: 2;margin-left: 15px;">
-    <img src="/static/img/toppeople.png" style="margin-top: -130%;margin-left: 75%;">
+    <img src="/static/img/toppeople.png" style="margin-top: -130%;margin-left: 75%;" alt="{% if title%}{{ title }}{% else %}鹿口,保护女性健康安全的避孕套、润滑液品牌 - 鹿口官网{% endif %}">
     <div style="width: 2px;height: 300px;background-color:white;position: absolute;margin-left: 120%;margin-top: 64%">
     </div>
   </div>
   <div class="wenzi" style="position: absolute;z-index: 2;left: 990px;">
-    <img src="/static/img/wenzi.png" style="transform:scale(0.7)">
+    <img src="/static/img/wenzi.png" style="transform:scale(0.7)" alt="{% if title%}{{ title }}{% else %}鹿口,保护女性健康安全的避孕套、润滑液品牌 - 鹿口官网{% endif %}">
   </div>
   <div class="top" style="border-radius: 0 0 50% 50% / 0 0 50px 50px;">
-    <img src="/static/img/DSC06650.jpg">
+    <img src="/static/img/DSC06650.jpg" alt="{% if title%}{{ title }}{% else %}鹿口,保护女性健康安全的避孕套、润滑液品牌 - 鹿口官网{% endif %}">
   </div>
 </div>
 
 <div style="margin:10px auto;font-size: 26px;display: table;">
   <div class="line"></div>
   <div style="display:inline-block;width: 35px;padding: 40px;">
-    <div class="none" onclick="nav('/')"><span>首页</span></div>
+    <a class="none" href="{% url 'index' %}"><span style="width: 100%;display: inline-block;">首页</span></a>
   </div>
   <div class="line"></div>
-  <div style="display:inline-block;"><img src="/static/img/logo.png" style="width: 70px;padding:0 80px;"></div>
+  <a style="display:inline-block;" href="{% url 'index' %}"><img src="/static/img/logo.png" style="width: 70px;padding:0 80px;" alt="{% if title%}{{ title }}{% else %}鹿口,保护女性健康安全的避孕套、润滑液品牌 - 鹿口官网{% endif %}"></a>
   <div class="line"></div>
   <div style="display:inline-block;width: 35px;padding: 40px;">
     <div class="select"><span>新闻</span></div>
@@ -50,7 +50,7 @@
   </div>
 
   {% for i in res %}
-  <div class="newsCard" onclick="nav('/news/?id={{i.id}}')">
+  <a class="newsCard" href="{% url 'news' %}?id={{i.id}}">
     <div class="cardText">
       <div style="margin: 20px 0 0;">
         <div style="font-size: 24px;">{{i.title}}</div>
@@ -61,15 +61,10 @@
       </div>
     </div>
     <div class="top">
-      <img src="../media/{{i.img}}" style="width: 100%;height: auto" />
+      <img src="../media/{{i.img}}" style="width: 100%;height: auto" alt="{% if title%}{{ title }}{% else %}鹿口,保护女性健康安全的避孕套、润滑液品牌 - 鹿口官网{% endif %}"/>
     </div>
-  </div>
+  </a>
   {% endfor %}
-
-  {#  <div class="num" style="display: block;">#}
-  {#    <div class="page" id="Page" style="justify-content: center;align-items: center;display: flex;"></div>#}
-  {#  </div>#}
-  {#  <div class="bottom_line" style="width: 80%;height: 1px;background-color: #cccccc;margin-left: 10%;margin-top: 20px;"></div>#}
 
   <div class="paginator pagination" style=" text-align: center;">
     <ul>
@@ -152,11 +147,13 @@
     }
 
     .dataSe {
+      cursor: pointer;
       font-size: 20px;
       font-weight: 400;
     }
 
     .dataNo {
+      cursor: pointer;
       font-size: 16px;
     }
   </style>

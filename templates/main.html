@@ -3,14 +3,14 @@
 {% block content %}
 <div style="margin: 0 auto;">
   <div class="people" style="position: absolute;z-index: 2;margin-left: 15px;">
-    <img src="/static/img/toppeople.png" style="margin-top: -130%;margin-left: 75%;">
+    <img src="/static/img/toppeople.png" style="margin-top: -130%;margin-left: 75%;" alt="{% if title%}{{ title }}{% else %}鹿口,保护女性健康安全的避孕套、润滑液品牌 - 鹿口官网{% endif %}">
     <div style="width: 2px;height: 300px;background-color:white;position: absolute;margin-left: 120%;margin-top: 64%"></div>
   </div>
   <div class="wenzi" style="position: absolute;z-index: 2;left: 990px;">
-    <img src="/static/img/wenzi.png" style="transform:scale(0.7)">
+    <img src="/static/img/wenzi.png" style="transform:scale(0.7)" alt="{% if title%}{{ title }}{% else %}鹿口,保护女性健康安全的避孕套、润滑液品牌 - 鹿口官网{% endif %}">
   </div>
   <div class="top" style="border-radius: 0 0 50% 50% / 0 0 50px 50px;">
-    <img src="/static/img/DSC06650.jpg">
+    <img src="/static/img/DSC06650.jpg" alt="{% if title%}{{ title }}{% else %}鹿口,保护女性健康安全的避孕套、润滑液品牌 - 鹿口官网{% endif %}">
   </div>
 </div>
 
@@ -18,10 +18,12 @@
   <div class="line"></div>
   <div style="display:inline-block;width: 35px;padding: 40px;"><div class="select"><span>首页</span></div></div>
   <div class="line"></div>
-  <div style="display:inline-block;"><img src="/static/img/logo.png" style="width: 70px;padding:0 80px;"></div>
+  <a style="display:inline-block;" href="{% url 'index' %}"><img src="/static/img/logo.png" style="width: 70px;padding:0 80px;" alt="{% if title%}{{ title }}{% else %}鹿口,保护女性健康安全的避孕套、润滑液品牌 - 鹿口官网{% endif %}"></a>
   <div class="line"></div>
-  <div style="display:inline-block;width: 35px;padding: 40px;"><div class="none" onclick="nav('/news_index/?year=2019')"><span>新闻</span></div></div>
-  <div class="line" style="display:inline-block;"></div>
+  <div style="display:inline-block;width: 35px;padding: 40px;">
+    <a class="none" href="{% url 'news_index' %}?year=2019"><span style="width: 100%;display: inline-block;">新闻</span></a>
+  </div>
+  <div class="line"></div>
 </div>
 
 <div class="h5" style="display: none;">
@@ -30,11 +32,11 @@
       <div>产品介绍</div>
       <div style="margin-top: 20px;font-size: 35px;font-weight: 400;">私处抑味·抑菌·保护</div>
     </div>
-    <img src="/static/img/1.JPG" style="width: 95%;margin: 20px 0;border-radius: 50% 50% 0 0/ 45px 45px 0 0;height: 500px;">
+    <img src="/static/img/1.JPG" style="width: 95%;margin: 20px 0;border-radius: 50% 50% 0 0/ 45px 45px 0 0;height: 500px;" alt="{% if title%}{{ title }}{% else %}鹿口,保护女性健康安全的避孕套、润滑液品牌 - 鹿口官网{% endif %}">
   </div>
   <div class="mii-page">
     <div class="mii-container">
-      <img src="/static/img/001.png" style="height: 450px;width: 100%">
+      <img src="/static/img/001.png" style="height: 450px;width: 100%" alt="{% if title%}{{ title }}{% else %}鹿口,保护女性健康安全的避孕套、润滑液品牌 - 鹿口官网{% endif %}">
       <div style="padding: 20px 20px 30px 20px;">
         <div style="font-size: 32px;font-weight: 800">鹿口润滑液·抑味抑菌保护</div>
         <div style="margin-top: 20px;font-size: 24px;font-weight: 600;color: #666666">真正照顾，<span style="font-size: 18px;font-weight: normal">消字号备案 *聚可安糖私护抑菌液，获得卫计委备案</span></div>
@@ -46,7 +48,7 @@
   </div>
   <div class="mii-page" style="margin-top: 20px;">
     <div class="mii-container">
-      <img src="/static/img/002.JPG" style="height: 450px;width: 100%">
+      <img src="/static/img/002.JPG" style="height: 450px;width: 100%" alt="{% if title%}{{ title }}{% else %}鹿口,保护女性健康安全的避孕套、润滑液品牌 - 鹿口官网{% endif %}">
       <div style="padding: 20px 20px 30px 20px;">
         <div style="font-size: 32px;font-weight: 800">鹿口安全套·极薄系列</div>
         <div style="margin-top: 20px;font-size: 24px;font-weight: 600;color: #666666">薄过003</div>
@@ -57,7 +59,7 @@
   </div>
   <div class="mii-page" style="margin-top: 20px;">
     <div class="mii-container">
-      <img src="/static/img/003.JPG" style="height: 450px;width: 100%">
+      <img src="/static/img/003.JPG" style="height: 450px;width: 100%" alt="{% if title%}{{ title }}{% else %}鹿口,保护女性健康安全的避孕套、润滑液品牌 - 鹿口官网{% endif %}">
       <div style="padding: 20px 20px 30px 20px;">
         <div style="font-size: 32px;font-weight: 800">鹿口安全套·倍润滑系列</div>
         <div style="margin-top: 20px;font-size: 24px;font-weight: 600;color: #666666">1200mg大量润滑，比平均多50%润滑液</div>
@@ -67,7 +69,7 @@
     </div>
   </div>
   <div class="top" style="margin-top: 20px;padding: 0;">
-    <img src="/static/img/media.png" style="width: 95%;">
+    <img src="/static/img/media.png" style="width: 95%;" alt="{% if title%}{{ title }}{% else %}鹿口,保护女性健康安全的避孕套、润滑液品牌 - 鹿口官网{% endif %}">
   </div>
 </div>
 <div class="main" style="display: block;">
@@ -77,10 +79,10 @@
       <div>产品介绍</div>
       <div style="margin-top: 20px;font-size: 25px;">私处抑味·抑菌·保护</div>
     </div>
-    <img src="/static/img/1.JPG" style="width: 85%;margin: 20px 0;height: auto;">
+    <img src="/static/img/1.JPG" style="width: 85%;margin: 20px 0;height: auto;" alt="{% if title%}{{ title }}{% else %}鹿口,保护女性健康安全的避孕套、润滑液品牌 - 鹿口官网{% endif %}">
   </div>
   <div style="display:flex;align-items:center;overflow: hidden;padding: 0 200px;margin: 60px 20px;height: 360px;">
-    <img src="/static/img/01.jpg" style="width: 400px;height: 360px;">
+    <img src="/static/img/01.jpg" style="width: 400px;height: 360px;" alt="{% if title%}{{ title }}{% else %}鹿口,保护女性健康安全的避孕套、润滑液品牌 - 鹿口官网{% endif %}">
     <div style="flex-direction:column;justify-content: space-between;width: 100%;margin-left: 200px;">
       <div style="font-size: 32px;font-weight: 600;">鹿口润滑液·</div>
       <div style="font-size: 32px;margin-top: 10px;font-weight: 600;">抑味抑菌保护</div>
@@ -93,13 +95,13 @@
       <div style="margin-top: 3px;"><button onclick="showImg()">关于我们</button></div>
     </div>
     <div style="flex-direction: column;justify-content:flex-start;height: 100%;">
-      <img src="/static/img/01.png" style="width: 60px;height: 60px;">
+      <img src="/static/img/01.png" style="width: 60px;height: 60px;" alt="{% if title%}{{ title }}{% else %}鹿口,保护女性健康安全的避孕套、润滑液品牌 - 鹿口官网{% endif %}">
     </div>
     <!--<div style="font-size: 30px;font-weight: 600;">01</div>-->
   </div>
   <div style="display:flex;align-items:center;overflow: hidden;padding: 0 200px;margin: 60px 20px;height: 360px;justify-content:space-between;">
     <div style="margin-top: auto;">
-      <img src="/static/img/02.png" style="width: 60px;height: 60px;">
+      <img src="/static/img/02.png" style="width: 60px;height: 60px;" alt="{% if title%}{{ title }}{% else %}鹿口,保护女性健康安全的避孕套、润滑液品牌 - 鹿口官网{% endif %}">
     </div>
     <div style="text-align: right;flex-direction:column;justify-content: space-between;width: 60%;height: 360px;margin-right: 186px;">
       <div style="font-size: 32px;font-weight: 600;">鹿口安全套·极薄系列</div>
@@ -108,11 +110,11 @@
       <div style="font-size: 14px;margin-top: 20px;color: #999999">*鹿口安全套皆具有抑味抑菌保护功能的润滑液</div>
       <div style="margin-top: 27%;"></div>
     </div>
-    <img src="/static/img/02.jpg" style="width: 400px;height: 360px;margin-left: 15px;">
+    <img src="/static/img/02.jpg" style="width: 400px;height: 360px;margin-left: 15px;" alt="{% if title%}{{ title }}{% else %}鹿口,保护女性健康安全的避孕套、润滑液品牌 - 鹿口官网{% endif %}">
     <!--<div style="font-size: 30px;font-weight: 600;">02</div>-->
   </div>
   <div style="display:flex;align-items:center;overflow: hidden;padding: 0 200px;margin: 60px 20px;height: 360px">
-    <img src="/static/img/03.jpg" style="width: 400px;height: 360px;">
+    <img src="/static/img/03.jpg" style="width: 400px;height: 360px;" alt="{% if title%}{{ title }}{% else %}鹿口,保护女性健康安全的避孕套、润滑液品牌 - 鹿口官网{% endif %}">
     <div style="margin-left: 200px;flex-direction:column;justify-content: space-between;width: 100%;;height: 360px;">
       <div style="font-size: 32px;font-weight: 600;">鹿口安全套·</div>
       <div style="font-size: 32px;margin-top: 10px;font-weight: 600;">倍润滑系列</div>
@@ -122,13 +124,13 @@
       <div style="margin-top: 13%;"></div>
     </div>
     <div style="flex-direction: column;justify-content:flex-start;height: 100%;">
-      <img src="/static/img/03.png" style="width: 60px;height: 60px;">
+      <img src="/static/img/03.png" style="width: 60px;height: 60px;" alt="{% if title%}{{ title }}{% else %}鹿口,保护女性健康安全的避孕套、润滑液品牌 - 鹿口官网{% endif %}">
     </div>
     <!--<div style="font-size: 30px;font-weight: 600;">03</div>-->
   </div>
   <div style="width: 80%;height: 1px;background-color: #cccccc;margin-left: 10%;margin-top: 20px;"></div>
   <div class="top" style="margin-top: 20px;">
-    <img src="/static/img/bottom.jpg" style="transform:scale(0.9);height: auto;">
+    <img src="/static/img/bottom.jpg" style="transform:scale(0.9);height: auto;" alt="{% if title%}{{ title }}{% else %}鹿口,保护女性健康安全的避孕套、润滑液品牌 - 鹿口官网{% endif %}">
   </div>
   <div style="width: 80%;height: 1px;background-color: #cccccc;margin-left: 10%;margin-top: 20px;"></div>
 </div>
@@ -143,11 +145,11 @@
   </div>
   <div class="top" style="display: inline-block;margin-top: 40px;float: right;width: 44%">
     <div style="display: inline-block;width: 40%;">
-      <img src="/static/img/weixin.jpg" style="width: 100%;height: auto;">
+      <img src="/static/img/weixin.jpg" style="width: 100%;height: auto;" alt="{% if title%}{{ title }}{% else %}鹿口,保护女性健康安全的避孕套、润滑液品牌 - 鹿口官网{% endif %}">
       <div style="text-align: center"><span>(请注明合作来意)</span></div>
     </div>
     <div style="display: inline-block;margin-left: 30px;width: 40%;">
-      <img src="/static/img/fuwu.jpg" style="width: 100%;height: auto">
+      <img src="/static/img/fuwu.jpg" style="width: 100%;height: auto" alt="{% if title%}{{ title }}{% else %}鹿口,保护女性健康安全的避孕套、润滑液品牌 - 鹿口官网{% endif %}">
       <div style="text-align: center"><span>(服务号)</span></div>
     </div>
   </div>

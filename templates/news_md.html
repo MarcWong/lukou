@@ -7,7 +7,7 @@
     {{ content | safe }}
 </div>
 
-<div class="paginator pagination" style=" text-align: center;">
+<div class="paginator pagination" style="text-align: center;">
   <ul>
     {% if last_id %}
     <li>
@@ -17,7 +17,6 @@
       </a>
     </li>
     {% endif %}
-    <!— 分页功能末端-->
     {% if next_id %}
     <li>
       <a href="{% url 'news' %}?id={{ next_id }}"

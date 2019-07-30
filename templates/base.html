@@ -24,7 +24,7 @@
     <div class="line"></div>
     <div style="display:inline-block;width: 25px;padding: 20px;"></div>
     <div class="line"></div>
-    <div style="display:inline-block;"><img src="/static/img/logo.png" style="width: 70px;padding:0 20px;"></div>
+    <a style="display:inline-block;" href="{% url 'index' %}"><img src="/static/img/logo.png" style="width: 70px;padding:0 80px;" alt="{% if title%}{{ title }}{% else %}鹿口,保护女性健康安全的避孕套、润滑液品牌 - 鹿口官网{% endif %}"></a>
     <div class="line"></div>
     <div style="display:inline-block;width: 25px;padding: 20px;"></div>
     <div class="line" style="display:inline-block;"></div>
@@ -62,9 +62,6 @@
     }
   }
 
-  function nav(url) {
-    window.location.href = url
-  }
   function navNew(url) {
     window.open(url, 'blank_')
   }
@@ -135,17 +132,6 @@
     cursor: pointer;
   }
 
-  .page a {
-    color: #aaa;
-    font-family: "微软雅黑";
-    padding: 0 10px;
-    text-decoration: none;
-    display: block;
-    text-align: center;
-    border: 1px solid #ccc;
-    border-left: none;
-  }
-
   button {
     background-color: transparent;
     border: 1px #cccccc solid;
@@ -157,7 +143,6 @@
   .gov{
     cursor: pointer;
   }
-
 </style>
 
 </html>
