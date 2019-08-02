@@ -53,15 +53,15 @@
   <a class="newsCard" href="{% url 'news' %}?id={{i.id}}">
     <div class="cardText">
       <div style="margin: 20px 0 0;">
-        <div style="font-size: 24px;">{{i.title}}</div>
-        <span style="font-size: 18px;">{{i.time}}</span>
+        <div style="font-size: 24px;color:#328FE1">{{i.title}}</div>
+        <span style="font-size: 18px;color:#328FE1">{{i.time}}</span>
       </div>
       <div style="margin-top: 20px;">
-        <span style="white-space:normal">{{i.digest}}</span>
+        <span style="white-space:normal;color:#328FE1">{{i.digest}}</span>
       </div>
     </div>
     <div class="top">
-      <img src="../media/{{i.img}}" style="width: 100%;height: auto" alt="{% if title%}{{ title }}{% else %}鹿口,保护女性健康安全的避孕套、润滑液品牌 - 鹿口官网{% endif %}"/>
+      <img src="../media/{{i.img}}" style="width: 100%;height: auto;color:#328FE1" alt="{% if title%}{{ title }}{% else %}鹿口,保护女性健康安全的避孕套、润滑液品牌 - 鹿口官网{% endif %}"/>
     </div>
   </a>
   {% endfor %}
